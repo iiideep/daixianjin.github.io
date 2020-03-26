@@ -1,0 +1,942 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="PHP入门到精通, DXJblog">
+    <meta name="description" content="
+闲得无所事事，觉得净下心来整理整理 PHP 的 Wiki 文档。所有资料均来至于：
+LearnKu PHP 社区
+最近很忙 很忙。。。
+
+PHP 语言基础PHP 的诞生PHP（外文名：PHP: Hypertext Preprocessor">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>PHP入门到精通 | DXJblog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">DXJblog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">DXJblog</div>
+        <div class="logo-desc">
+            
+            可予流浪 寄半分渴望，不敢拼命去闯 就不能被原谅 踏破千山 纵然将鞋磨穿 迎日落再登攀。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        PHP入门到精通
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PHP入门到精通/" target="_blank">
+                                <span class="chip bg-color">PHP入门到精通</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/PHP/" class="post-category" target="_blank">
+                                PHP
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-04
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.5k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        6 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>闲得无所事事，觉得净下心来整理整理 PHP 的 Wiki 文档。所有资料均来至于：</p>
+<p><a href="https://learnku.com/php/wikis" target="_blank" rel="noopener">LearnKu PHP 社区</a></p>
+<p>最近很忙 很忙。。。</p>
+</blockquote>
+<h1 id="PHP-语言基础"><a href="#PHP-语言基础" class="headerlink" title="PHP 语言基础"></a>PHP 语言基础</h1><h3 id="PHP-的诞生"><a href="#PHP-的诞生" class="headerlink" title="PHP 的诞生"></a>PHP 的诞生</h3><p>PHP（外文名：PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一门开源脚本语言，专为『动态 Web 开发』而生。</p>
+<p>PHP 于 1994 年由 Rasmus Lerdorf 创建。1995 年 6 月，PHP 1.0 发布。</p>
+<h3 id="PHP-擅长的领域"><a href="#PHP-擅长的领域" class="headerlink" title="PHP 擅长的领域"></a>PHP 擅长的领域</h3><p>网站开发是 PHP 一直专注的领域，你可以用他来做动态网页开发，或者开发手机 App 的服务器后端接口，或者构建公司内部的 CRM 客户管理系统。拿 C 可以给 PHP 写扩展库，除去 Web 其实 PHP 还可以干很多的事情。</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/67180780/answer/251574912" target="_blank" rel="noopener">https://www.zhihu.com/question/67180780/answer/251574912</a></p>
+<p><a href="https://segmentfault.com/q/1010000008246775" target="_blank" rel="noopener">https://segmentfault.com/q/1010000008246775</a></p>
+<p>了解一下即可，因为我们专注 ·「Web 开发」因为专注所以专业！！！</p>
+</blockquote>
+<h3 id="PHP-市场占有率"><a href="#PHP-市场占有率" class="headerlink" title="PHP 市场占有率"></a>PHP 市场占有率</h3><p>PHP 自诞生以来，凭借其专注 Web 开发、简单上手、容易部署等特性，在服务器脚本语言市场占有率中遥遥领先于其他对手：</p>
+<p><img src="https://i.loli.net/2019/09/04/9dDEKsoJbRfFwkX.png" alt></p>
+<p>上图是由 <a href="https://w3techs.com/technologies/overview/programming_language/all" target="_blank" rel="noopener">W3Techs</a> 网站提供的 <a href="https://w3techs.com/technologies/overview/programming_language/all" target="_blank" rel="noopener">服务器端脚本语言市场占有率</a> 排名，数据样本是 <a href="http://www.alexa.com/" target="_blank" rel="noopener">Alexa</a> 世界排名 <strong>前一千万</strong> 的网站，其中 79.0% 使用 PHP 构建，此数据每日更新。可看出世界上大部分的商业网站在使用 PHP。</p>
+<h3 id="PHP-语言特性"><a href="#PHP-语言特性" class="headerlink" title="PHP 语言特性"></a>PHP 语言特性</h3><p>PHP 的特性包括：</p>
+<ol>
+<li>PHP 独特的语法混合了 C、Java、Perl 以及 PHP 自创新的语法；</li>
+<li>PHP 是将程序嵌入到 HTML 文档中去执行，执行效率比完全生成 HTML 标记的 CGI 要高许多。PHP 具有非常强大的功能，所有的 CGI 的功能 PHP 都能实现；</li>
+<li>PHP 支持几乎所有流行的数据库以及操作系统；</li>
+<li>PHP 可以用 C、C++ 进行程序的扩展；</li>
+<li>PHP 具备所有面对对象的特性。</li>
+</ol>
+<h3 id="PHP-作者"><a href="#PHP-作者" class="headerlink" title="PHP 作者"></a>PHP 作者</h3><p><img src="https://i.loli.net/2019/09/04/q5WcoKaIXfrSPd6.png" alt></p>
+<p>PHP 语言的三位著名核心开发者：</p>
+<ul>
+<li>Rasmus Lerdorf，PHP 语言之父；</li>
+<li>Andi Gutmans，创立了 Zend Technologies 并于 2016 年 2 月离开 Zend Technologies ，AWS 的总经理；</li>
+<li>Zeev Suraski，与 Andi Gutmans 共同开发了 Zend Engine，与 Andi Gutmans 共同创立了 Zend Technologies，Zend Technologies 的首席技术官。并于 2019 年 8 月 1 日宣布离职。随后提出了 p++ 详见<ul>
+<li><a href="https://learnku.com/php/t/32413" target="_blank" rel="noopener">p++ 中文翻译</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="PHP-开发团队"><a href="#PHP-开发团队" class="headerlink" title="PHP 开发团队"></a>PHP 开发团队</h3><p>PHP 的开发管理由 Zend Technologies 公司负责，该公司设立在以色列，主要研发 Zend 相关产品，有 Zend Server、Zend Studio、Zend Framework，Zend Engine 及 Zend 认证 PHP 工程师测试 等。</p>
+<p>Zend 认证 PHP 工程师测试旨在证明一个人完全有资格开发 PHP Web 应用程序，有兴趣的同学可报名参加，详见</p>
+<ul>
+<li><a href="http://www.zend.com/en/services/certification/php-certification" target="_blank" rel="noopener">PHP Certification</a></li>
+</ul>
+<h3 id="PHP-版本"><a href="#PHP-版本" class="headerlink" title="PHP 版本"></a>PHP 版本</h3><table>
+<thead>
+<tr>
+<th align="center">主要版本</th>
+<th align="center">发布日期</th>
+<th align="center">相关内容</th>
+<th align="center">结束支持日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.0</td>
+<td align="center">1995-06-08</td>
+<td align="center">有着类似 Perl 的变量命名方式、窗体处理功能 以及嵌入到 HTML 中运行的能力</td>
+<td align="center">不详</td>
+</tr>
+<tr>
+<td align="center">2.0</td>
+<td align="center">1996-04-16</td>
+<td align="center">速度更快、体积更小，更容易产生动态网页</td>
+<td align="center">不详</td>
+</tr>
+<tr>
+<td align="center">3.0</td>
+<td align="center">1998-06-06</td>
+<td align="center">开发方式改成多人共同参与。Zeev Suraski 和 Andi Gutmans 为这个版本重写了剖析引擎</td>
+<td align="center">2000-10-20</td>
+</tr>
+<tr>
+<td align="center">4.0</td>
+<td align="center">2000-05-22</td>
+<td align="center">改成以 Zend 引擎作为语法分析器，具有两阶 段剖析 / 标签剖析系统等先进功能</td>
+<td align="center">2001-06-23</td>
+</tr>
+<tr>
+<td align="center">4.1</td>
+<td align="center">2001-12-10</td>
+<td align="center">加入 “超全局变量”（superglobals）功能， 包含了 <code>$_GET</code>、<code>$_POST</code>、<code>$_SESSION</code> 等</td>
+<td align="center">2002-03-02</td>
+</tr>
+<tr>
+<td align="center">4.2</td>
+<td align="center">2002-04-22</td>
+<td align="center">默认取消 register_globals 功能。从网络接 收的数据将不会设置成全局变量，增加程 序安全性</td>
+<td align="center">2002-09-06</td>
+</tr>
+<tr>
+<td align="center">4.3</td>
+<td align="center">2002-12-27</td>
+<td align="center">加入命令行可执行文件，称为 CLI，用以 补充 CGI</td>
+<td align="center">2005-03-31</td>
+</tr>
+<tr>
+<td align="center">4.4</td>
+<td align="center">2005-07-11</td>
+<td align="center">为 phpize 和 PHP 配置脚本添加手册</td>
+<td align="center">2008-08-08</td>
+</tr>
+<tr>
+<td align="center">5.0</td>
+<td align="center">2004-07-13</td>
+<td align="center">推出有着新的对象模型的 Zend Engine II， 这也意味着 PHP 编程跨入了新时代，PHP  从此可以面向对象编程</td>
+<td align="center">2005-09-05</td>
+</tr>
+<tr>
+<td align="center">5.1</td>
+<td align="center">2005-11-24</td>
+<td align="center">在往重新设计的 PHP 引擎引入编译变量时 做了性能提升。添加了 PHP 数据对象（PDO） 作为访问数据库的统一接口</td>
+<td align="center">2006-08-24</td>
+</tr>
+<tr>
+<td align="center">5.2</td>
+<td align="center">2006-11-02</td>
+<td align="center">默认打开 “Filter” 扩展。本地支持 JSON</td>
+<td align="center">2011-01-06</td>
+</tr>
+<tr>
+<td align="center">5.3</td>
+<td align="center">2009-06-30</td>
+<td align="center">支持命名空间，使用 XMLReader 和 XMLWriter，支持 SOAP，延迟静态绑定， 跳转标签（有限的 goto），闭包</td>
+<td align="center">2014-08-14</td>
+</tr>
+<tr>
+<td align="center">5.4</td>
+<td align="center">2012-03-01</td>
+<td align="center">支持 Trait、简短数组表达式，加入了内建的 Web 服务器。增强了性能，减小内存使用量</td>
+<td align="center">2015-09-03</td>
+</tr>
+<tr>
+<td align="center">5.5</td>
+<td align="center">2013-06-20</td>
+<td align="center">支持 generators，用于异常处理的 finally ， 将 OpCache（基于 Zend Optimizer+）加入官方 发布中</td>
+<td align="center">2016-07-10</td>
+</tr>
+<tr>
+<td align="center">5.6</td>
+<td align="center">2014-08-28</td>
+<td align="center">支持常量标量表达式、可变参数函数、 指数运算符，增加 phpdbg SAPI、统一的默认字符集</td>
+<td align="center">2018-12-31</td>
+</tr>
+<tr>
+<td align="center">7.0</td>
+<td align="center">2015-12-03</td>
+<td align="center">Zend Engine 3 (性能提升并在 Windows 上 支持 64-bit 整数)，统一的变量语法， 基于 抽象语法树编译过程</td>
+<td align="center">2018-12-03</td>
+</tr>
+<tr>
+<td align="center">7.1</td>
+<td align="center">2016-12-01</td>
+<td align="center">void 返回值类型，类常量可见性修饰符</td>
+<td align="center">2019-12-01</td>
+</tr>
+<tr>
+<td align="center">7.2</td>
+<td align="center">2017-11-30</td>
+<td align="center">转换对象 / 数组强制转换中的数字键，计算 不可数对象，对象类型提示，删除  Mcrypt 扩展，新的 Sodium 扩展</td>
+<td align="center">2019-12-01</td>
+</tr>
+<tr>
+<td align="center">7.3</td>
+<td align="center">2018-12-06</td>
+<td align="center">改进了 PHP GC，重新设计了用 PHP 编写的 旧的 ext_skel 程序等</td>
+<td align="center">未知</td>
+</tr>
+</tbody></table>
+<h3 id="PHP-的发行计划"><a href="#PHP-的发行计划" class="headerlink" title="PHP 的发行计划"></a>PHP 的发行计划</h3><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>发布日期</th>
+<th>终止维护</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7.0</td>
+<td>2015-12-3</td>
+<td>2018-12-3</td>
+</tr>
+<tr>
+<td>7.1</td>
+<td>2016-12-1</td>
+<td>2019-12-1</td>
+</tr>
+<tr>
+<td>7.2</td>
+<td>2017-11-30</td>
+<td>2020-11-30</td>
+</tr>
+<tr>
+<td>7.3</td>
+<td>2018-12-6</td>
+<td>2021-12-6</td>
+</tr>
+<tr>
+<td>7.4</td>
+<td>2019-11-21（计划）</td>
+<td>2022-12</td>
+</tr>
+<tr>
+<td>8.0</td>
+<td>2020 Q4 或 2021 Q1</td>
+<td>2023 Q4 或 2024 Q1</td>
+</tr>
+</tbody></table>
+<p>官方有给出发布计划，可以看出基本上是每年第四季度（Q4）发布版本。</p>
+<h3 id="PHP-的维护周期"><a href="#PHP-的维护周期" class="headerlink" title="PHP 的维护周期"></a>PHP 的维护周期</h3><p>每个版本一般的支持周期为 3 年左右。</p>
+<blockquote>
+<p>最近开始忙了，慢慢整理当中。。。</p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'a76b52887c6f8d0601d5',
+        clientSecret: 'a0a9547d5813572b6e0dfbaff903607a5d6fcdb7',
+        repo: 'daixianjin.github.io',
+        owner: 'daixianjin',
+        admin: "daixianjin",
+        id: '2019-09-04T18-00-49',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/09/06/Composer/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Composer">
+                        
+                        <span class="card-title">Composer</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要先了解一下历史，从拷贝第三方代码到项目中(1994)，到 PEAR 安装依赖包(1999)，再到 Composer 兴起(2012)，PHP 社区经历了将近 20 年的探索。PHP 这门古老的语言，也在不断的发展更新，在 Web 领域一
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Composer/" class="post-category" target="_blank">
+                                    Composer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Composer/" target="_blank">
+                        <span class="chip bg-color">Composer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/21/MySQL之存储引擎/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL-存储引擎">
+                        
+                        <span class="card-title">MySQL-存储引擎</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要
+MySQL 当中最最常用的存储引擎- Myisam 和 Innodb，他们二兄弟是 MySQL 当中最最常用的二个存储引擎了。当然 MySQL 的存储引擎不止他们二兄弟还有别的一些存储引擎，本着既存在即合理的原则，我们不能单方面的去评
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category" target="_blank">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">49.5k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/daixianjin/daixianjin.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:boyi6868@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=562275977" class="tooltipped" data-tooltip="QQ联系我: 562275977" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

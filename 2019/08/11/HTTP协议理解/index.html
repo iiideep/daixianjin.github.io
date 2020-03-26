@@ -1,0 +1,1253 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTTP协议简单理解, DXJblog">
+    <meta name="description" content="简述历史
+HTTP 协议(超文本传输协议 HyperText Transfer Protocol )，它是基于 TCP/IP 协议的应用层传输协议，简单来说就是客户端和服务端进行数据传输的一种规则。默认使用 80 端口。
+HTTP 协议工作">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>HTTP协议简单理解 | DXJblog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">DXJblog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">DXJblog</div>
+        <div class="logo-desc">
+            
+            可予流浪 寄半分渴望，不敢拼命去闯 就不能被原谅 踏破千山 纵然将鞋磨穿 迎日落再登攀。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        HTTP协议简单理解
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/HTTP协议/" target="_blank">
+                                <span class="chip bg-color">HTTP协议</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/HTTP/" class="post-category" target="_blank">
+                                HTTP
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-08-11
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        5.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        20 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="简述历史"><a href="#简述历史" class="headerlink" title="简述历史"></a>简述历史</h2><blockquote>
+<p>HTTP 协议(超文本传输协议 HyperText Transfer Protocol )，它是基于 TCP/IP 协议的应用层传输协议，简单来说就是客户端和服务端进行数据传输的一种规则。默认使用 80 端口。</p>
+<p>HTTP 协议工作于客户端-服务端架构之上。浏览器作为 HTTP 客户端通过 URL 向 HTTP 服务端即 WEB 服务器发送所有请求。 WEB 服务器根据接收到的请求后，向客户端发送响应信息。</p>
+<blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eegy1g654ktgyvbj20fb051dfr.jpg" alt></p>
+</blockquote>
+<p>1991年发布的 HTTP/0.9 版本发布，该版本及其的简单，只有一个命令 GET 。</p>
+<p>1996年5月份， HTTP/1.0 版本发布，内容大大的增加。首先可以发送任何格式的内容，除了传输文字，还可以传送图片、视频、二进制文件。其次除了GET 命令，还引入了 POST 和 HEAD 命令也就是我们说的简单请求方式。1.0 版本缺点无法做到持久连接，造成大量的通信开销。</p>
+<p>1997年1月，HTTP/1.1 版本发布，他进一步的完善了 HTTP 协议，目前来说我们用的最多的还是 HTTP/1.1 版本。1.1 版本最大的变化就是引入了持久连接，只要 TCP 链接默认不关闭，那么他就可以一直复用。不用声明 Connection: keep-alive，目前，对于同一个域名，大多数浏览器允许同时建立 6 个持久连接。</p>
+<p>2015年，HTTP/2 发布。它不叫 HTTP/2.0，是因为标准委员会不打算再发布子版本了，下一个新版本将是 HTTP/3 。3 版本的最大的改变，可能会抛弃掉 TCP 协议使用 UDP 协议。</p>
+</blockquote>
+<h2 id="TCP-协议简述"><a href="#TCP-协议简述" class="headerlink" title="TCP 协议简述"></a>TCP 协议简述</h2><p><img src="http://ww1.sinaimg.cn/large/e73160eegy1g5w31tlidzj20o10hbgpo.gif" alt></p>
+<blockquote>
+<p>建立 TCP 需要三次捂手建立连接，与四次挥手断开连接。整个过程如下图：</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eegy1g658ctyl3jj20f60lct9v.jpg" alt></p>
+<h3 id="TCP-三次捂手"><a href="#TCP-三次捂手" class="headerlink" title="TCP 三次捂手"></a>TCP 三次捂手</h3><p>首先客户端发送连接请求报文，服务端接收连接后回复 ACK 报文，并为这次连接分配资源。客户端接收到 ACK 报文后也向服务端发送 ACK 报文，并分配资源，这样 TCP 连接就建立了。其实所谓的三次捂手其实就是建立一个 TCP 连接时，需要客户端和服务端总共发送三个包，三次捂手的目的是个连接服务器指定的端口，建立 TCP 连接，并同步连接双方的序列号和确认并交换 TCP 窗口大小信息，在 SOCKET 编程当中，客户端执行 connect() 时，将会触发三次捂手：</p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eegy1g658o2qh0ij20f109374f.jpg" alt></p>
+<h3 id="TCP-四次挥手"><a href="#TCP-四次挥手" class="headerlink" title="TCP 四次挥手"></a>TCP 四次挥手</h3><p>TCP 连接的拆除需要发送四个包，客户端或者服务器端均可主动发起挥手动作，在 SOCKET 编程中，任何一方执行 close() 即可产生挥手操作。假设客户端发起中断连接请求，就先发送 FIN 报文。服务端接到 FIN 报文后，但是如果还有数据没有发送完成，则不必急着关闭 Socket ，可以继续发送数据。所以服务器端先发送 ACK ，告诉客户端：请求已经收到了，但是我还没准备好，请继续等待停止的消息。这个时候客户端就进入 FIN_WAIT 状态，继续等待服务端的 FIN 报文。当服务端确定数据已发送完成，则向客户端发送 FIN 报文，告诉客户端：服务器这边数据发完了，准备好关闭连接了。客户端收到 FIN 报文后，就知道可以关闭连接了，但是他还是不相信网络，所以发送 ACK 后进入 TIME_WAIT 状态， 服务端收到 ACK 后，就知道可以断开连接了。客户端等待了 2MSL 后依然没有收到回复，则证明服务端已正常关闭，最后，客户端也可以关闭连接了至此， TCP 连接就已经完全关闭了！关闭连接的过程如下图所示：</p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eegy1g658xy3fgrj20by085dfx.jpg" alt></p>
+<h2 id="HTTP-工作流程"><a href="#HTTP-工作流程" class="headerlink" title="HTTP 工作流程"></a>HTTP 工作流程</h2><p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w3bsgdqmj20fy06o75n.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w3f1g673j20kh09cdiv.jpg" alt></p>
+<h2 id="HTTP-协议的特点"><a href="#HTTP-协议的特点" class="headerlink" title="HTTP 协议的特点"></a>HTTP 协议的特点</h2><ul>
+<li>支持客户/服务器模式：请求 响应</li>
+<li>简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有 GET、HEAD、POST。每种 方法规定了客户与服务器联系的类型不同。由于 HTTP 协议简单，使得 HTTP 服务器的程序规模小，因而通信速度很快。</li>
+<li>灵活：HTTP 允许传输任意类型的数据对象。正在传输的类型由 Content-Type 加以标记。</li>
+<li>无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。早期这么做的原因是请求资源少，追求快。后来通过 Connection: Keep-Alive 实现长连接</li>
+<li>无状态：HTTP 协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</li>
+</ul>
+<p>HTTP 是一种无状态协议，HTTP 协议本身不会对发送过来的请求和响应的通信状态做一个持久化处理。这样做的目的就是为了保证 HTTP 协议的简单性，从而能够快速的处理大量的事务，提高效率。</p>
+<p>然而在很多的场景当中，无状态的特性就让我们非常尴尬，比如说我们需要保持一个用户登录状态，由于我们 HTTP 协议无状态的特点，无法向服务器证明我们’认识’，所以我们需要引入别的技术来做处理。比如：cookie</p>
+<h2 id="HTTP-URL"><a href="#HTTP-URL" class="headerlink" title="HTTP URL"></a>HTTP URL</h2><pre class="line-numbers language-php"><code class="language-php">http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//host[":"port][abs_path]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>host: 代表主机域名或IP地址</li>
+<li>port: 端口号，缺省端口80</li>
+<li>abs_path : 请求资源的URL，如果没有，填 “/“，通常浏览器会帮我们自动完成。<br>EG:</li>
+<li>举个栗子：<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a> </li>
+</ul>
+<h2 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h2><p>下图是在网上找的一张图，觉得能很好的表达HTTP请求的所发送的数据格式。</p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w3ngr7gfj20kr06lmx0.jpg" alt></p>
+<p>由上图可以看到，HTTP 请求由请求行，消息报头，请求正文三部分构成。</p>
+<h3 id="HTTP-请求状态行"><a href="#HTTP-请求状态行" class="headerlink" title="HTTP 请求状态行"></a>HTTP 请求状态行</h3><p>请求行由请求 Method ,  URL 字段和 HTTP Version 三部分构成, 总的来说请求行就是定义了本次请求的请求方式, 请求的地址, 以及所遵循的 HTTP 协议版本例如：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token constant">GET</span> <span class="token operator">/</span>example<span class="token punctuation">.</span>html <span class="token constant">HTTP</span><span class="token operator">/</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token function">1</span> <span class="token punctuation">(</span><span class="token constant">CRLF</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>HTTP 协议的方法有：</p>
+<ul>
+<li>GET： 请求*<em>获取 *</em>Request-URI 所标识的资源</li>
+<li>POST： 在 Request-URI 所标识的资源后<strong>增加</strong>新的数据</li>
+<li>HEAD： 请求获取由 Request-URI 所标识的资源的<strong>响应消息报头</strong></li>
+<li>PUT： 请求服务器<strong>存储或修改</strong>一个资源，并用 Request-URI 作为其标识</li>
+<li>DELETE： 请求服务器*<em>删除 *</em>Request-URI 所标识的资源</li>
+<li>TRACE： 请求服务器回送收到的请求信息，主要用于<strong>测试或诊断</strong></li>
+<li>CONNECT： 保留将来使用</li>
+<li>OPTIONS： 请求查询服务器的性能，或者查询与资源相关的选项和需求</li>
+</ul>
+<h3 id="HTTP-请求头"><a href="#HTTP-请求头" class="headerlink" title="HTTP 请求头"></a>HTTP 请求头</h3><p>消息报头由一系列的键值对组成，允许客户端向服务器端发送一些附加信息或者客户端自身的信息，主要包括：</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accept</td>
+<td>告诉服务器，客户端支持的数据类型。</td>
+<td>Accept: text/plain, text/html</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>告诉服务器，客户端采用的编码。</td>
+<td>Accept-Charset: iso-8859-5,utf-8</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>告诉服务器，客户机支持的数据压缩格式。</td>
+<td>Accept-Encoding: compress, gzip</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>告诉服务器，客户机的语言环境。</td>
+<td>Accept-Language: en,zh</td>
+</tr>
+<tr>
+<td>Accept-Ranges</td>
+<td>可以请求网页实体的一个或者多个子范围字段</td>
+<td>Accept-Ranges: bytes</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>HTTP授权的授权证书类型</td>
+<td>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</td>
+</tr>
+<tr>
+<td>Cache-Control</td>
+<td>指定请求和响应遵循的缓存机制</td>
+<td>Cache-Control: no-cache</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>表示是否需要持久连接（HTTP 1.1默认进行持久连接）</td>
+<td>Keep-Alive</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器</td>
+<td>Cookie: $Version=1; Skin=new;</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>请求的内容长度</td>
+<td>Content-Length: 348</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>请求的与实体对应的MIME信息</td>
+<td>Content-Type: application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>请求发送的日期和时间</td>
+<td>Date: Tue, 15 Nov 2010 08:12:31 GMT</td>
+</tr>
+<tr>
+<td>Expect</td>
+<td>请求的特定的服务器行为</td>
+<td>Expect: 100-continue</td>
+</tr>
+<tr>
+<td>From</td>
+<td>发出请求的用户的Email</td>
+<td>From: <a href="mailto:xxx@163.com" target="_blank" rel="noopener">xxx@163.com</a></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>指定请求的服务器的域名和端口号</td>
+<td>Host: <a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.zcmhi.com" target="_blank" rel="noopener">www.baidu.com</a></td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td>只有请求内容与实体相匹配才有效</td>
+<td>If-Match: “737060cd8c284d8af7ad3082f209582d”</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>客户机通过这个头告诉服务器，资源的缓存时间。</td>
+<td>If-Modified-Since: Sat, 29 Oct 2010 19:43:31 GMT</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td>如果内容未改变返回304代码，参数为服务器先前发送的Etag，与服务器回应的Etag比较判断是否改变</td>
+<td>If-None-Match: “737060cd8c284d8af7ad3082f209582d”</td>
+</tr>
+<tr>
+<td>If-Range</td>
+<td>如果实体未改变，服务器发送客户端丢失的部分，否则发送整个实体。参数也为Etag</td>
+<td>If-Range: “737060cd8c284d8af7ad3082f209582d”</td>
+</tr>
+<tr>
+<td>If-Unmodified-Since</td>
+<td>只在实体在指定时间之后未被修改才请求成功</td>
+<td>If-Unmodified-Since: Sat, 29 Oct 2010 19:43:31 GMT</td>
+</tr>
+<tr>
+<td>Max-Forwards</td>
+<td>限制信息通过代理和网关传送的时间</td>
+<td>Max-Forwards: 10</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>用来包含实现特定的指令</td>
+<td>Pragma: no-cache</td>
+</tr>
+<tr>
+<td>Proxy-Authorization</td>
+<td>连接到代理的授权证书</td>
+<td>Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</td>
+</tr>
+<tr>
+<td>Range</td>
+<td>只请求实体的一部分，指定范围</td>
+<td>Range: bytes=500-999</td>
+</tr>
+<tr>
+<td>Referer</td>
+<td>客户机通过这个头告诉服务器，它是从哪个资源来访问服务器的。（一般用于防盗链）</td>
+<td>Referer: <a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.zcmhi.com%2Farchives%2F71.html" target="_blank" rel="noopener">www.zcmhi.com/archives/71…</a></td>
+</tr>
+<tr>
+<td>TE</td>
+<td>客户端愿意接受的传输编码，并通知服务器接受接受尾加头信息</td>
+<td>TE: trailers,deflate;q=0.5</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>向服务器指定某种传输协议以便服务器进行转换（如果支持）</td>
+<td>Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>浏览器的具体信息</td>
+<td>User-Agent: Mozilla/5.0 (Linux; X11)</td>
+</tr>
+<tr>
+<td>Via</td>
+<td>通知中间网关或代理服务器地址，通信协议</td>
+<td>Via: 1.0 fred, 1.1 <a href="https://link.juejin.im/?target=http%3A%2F%2Fnowhere.com" target="_blank" rel="noopener">nowhere.com</a>(Apache/1.1)</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>关于消息实体的警告信息</td>
+<td>Warn: 199 Miscellaneous warning</td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-请求正文"><a href="#HTTP-请求正文" class="headerlink" title="HTTP 请求正文"></a>HTTP 请求正文</h3><p>只有发送 POST 方式时才有请求正文，GET 方式没有请求正文</p>
+<h3 id="HTTP-请求报文"><a href="#HTTP-请求报文" class="headerlink" title="HTTP 请求报文"></a>HTTP 请求报文</h3><p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w4vnbdrvj20m80egaan.jpg" alt></p>
+<h2 id="HTTP-响应"><a href="#HTTP-响应" class="headerlink" title="HTTP 响应"></a>HTTP 响应</h2><p>与 HTTP 请求类似，先上一张图：</p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w4wab05kj20kp06qt8k.jpg" alt></p>
+<p>HTTP 响应也由三部分组成，包括状态行，消息报头，响应正文。</p>
+<h3 id="HTTP-响应状态行"><a href="#HTTP-响应状态行" class="headerlink" title="HTTP 响应状态行"></a>HTTP 响应状态行</h3><p>状态行也由三部分组成，包括 HTTP 协议的版本，状态码，以及对状态码的文本描述。例如：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token constant">HTTP</span><span class="token operator">/</span><span class="token number">1.1</span> <span class="token number">200</span> <span class="token constant">OK</span> （<span class="token constant">CRLF</span>）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="HTTP-响应头"><a href="#HTTP-响应头" class="headerlink" title="HTTP 响应头"></a>HTTP 响应头</h3><table>
+<thead>
+<tr>
+<th align="left">Header</th>
+<th align="left">解释</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Accept-Ranges</td>
+<td align="left">表明服务器是否支持指定范围请求及哪种类型的分段请求</td>
+<td align="left">Accept-Ranges: bytes</td>
+</tr>
+<tr>
+<td align="left">Age</td>
+<td align="left">从原始服务器到代理缓存形成的估算时间（以秒计，非负）</td>
+<td align="left">Age: 12</td>
+</tr>
+<tr>
+<td align="left">Allow</td>
+<td align="left">对某网络资源的有效的请求行为，不允许则返回405</td>
+<td align="left">Allow: GET, HEAD</td>
+</tr>
+<tr>
+<td align="left">Cache-Control</td>
+<td align="left">告诉所有的缓存机制是否可以缓存及哪种类型</td>
+<td align="left">Cache-Control: no-cache</td>
+</tr>
+<tr>
+<td align="left">Content-Encoding</td>
+<td align="left">web服务器支持的返回内容压缩编码类型。</td>
+<td align="left">Content-Encoding: gzip</td>
+</tr>
+<tr>
+<td align="left">Content-Language</td>
+<td align="left">响应体的语言</td>
+<td align="left">Content-Language: en,zh</td>
+</tr>
+<tr>
+<td align="left">Content-Length</td>
+<td align="left">响应体的长度</td>
+<td align="left">Content-Length: 348</td>
+</tr>
+<tr>
+<td align="left">Content-Location</td>
+<td align="left">请求资源可替代的备用的另一地址</td>
+<td align="left">Content-Location: /index.htm</td>
+</tr>
+<tr>
+<td align="left">Content-MD5</td>
+<td align="left">返回资源的MD5校验值</td>
+<td align="left">Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==</td>
+</tr>
+<tr>
+<td align="left">Content-Range</td>
+<td align="left">在整个返回体中本部分的字节位置</td>
+<td align="left">Content-Range: bytes 21010-47021/47022</td>
+</tr>
+<tr>
+<td align="left">Content-Type</td>
+<td align="left">如果返回是流式的数据，我们就必须告诉浏览器这个头，不然浏览器会下载这个页面，同时告诉浏览器是utf8编码，否则可能出现乱码</td>
+<td align="left">Content-Type: text/html; charset=utf-8</td>
+</tr>
+<tr>
+<td align="left">Date</td>
+<td align="left">原始服务器消息发出的时间</td>
+<td align="left">Date: Tue, 15 Nov 2010 08:12:31 GMT</td>
+</tr>
+<tr>
+<td align="left">ETag</td>
+<td align="left">请求变量的实体标签的当前值</td>
+<td align="left">ETag: “737060cd8c284d8af7ad3082f209582d”</td>
+</tr>
+<tr>
+<td align="left">Expires</td>
+<td align="left">响应过期的日期和时间</td>
+<td align="left">Expires: Thu, 01 Dec 2010 16:00:00 GMT</td>
+</tr>
+<tr>
+<td align="left">Last-Modified</td>
+<td align="left">请求资源的最后修改时间</td>
+<td align="left">Last-Modified: Tue, 15 Nov 2010 12:45:26 GMT</td>
+</tr>
+<tr>
+<td align="left">Location</td>
+<td align="left">用来重定向接收方到非请求URL的位置来完成请求或标识新的资源</td>
+<td align="left">Location: <a href="http://www.zcmhi.com/archives/94.html" target="_blank" rel="noopener">http://www.zcmhi.com/archives/94.html</a></td>
+</tr>
+<tr>
+<td align="left">Pragma</td>
+<td align="left">包括实现特定的指令，它可应用到响应链上的任何接收方</td>
+<td align="left">Pragma: no-cache</td>
+</tr>
+<tr>
+<td align="left">Proxy-Authenticate</td>
+<td align="left">它指出认证方案和可应用到代理的该URL上的参数</td>
+<td align="left">Proxy-Authenticate: Basic</td>
+</tr>
+<tr>
+<td align="left">refresh</td>
+<td align="left">应用于重定向或一个新的资源被创造，在5秒之后重定向（由网景提出，被大部分浏览器支持）</td>
+<td align="left">Refresh: 5; url=<a href="http://www.zcmhi.com/archives/94.html" target="_blank" rel="noopener">http://www.zcmhi.com/archives/94.html</a></td>
+</tr>
+<tr>
+<td align="left">Retry-After</td>
+<td align="left">如果实体暂时不可取，通知客户端在指定时间之后再次尝试</td>
+<td align="left">Retry-After: 120</td>
+</tr>
+<tr>
+<td align="left">Server</td>
+<td align="left">web服务器软件名称</td>
+<td align="left">Server: Apache/1.3.27 (Unix) (Red-Hat/Linux)</td>
+</tr>
+<tr>
+<td align="left">Set-Cookie</td>
+<td align="left">设置Http Cookie</td>
+<td align="left">Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1</td>
+</tr>
+<tr>
+<td align="left">Trailer</td>
+<td align="left">指出头域在分块传输编码的尾部存在</td>
+<td align="left">Trailer: Max-Forwards</td>
+</tr>
+<tr>
+<td align="left">Transfer-Encoding</td>
+<td align="left">文件传输编码</td>
+<td align="left">Transfer-Encoding:chunked</td>
+</tr>
+<tr>
+<td align="left">Vary</td>
+<td align="left">告诉下游代理是使用缓存响应还是从原始服务器请求</td>
+<td align="left">Vary: *</td>
+</tr>
+<tr>
+<td align="left">Via</td>
+<td align="left">告知代理客户端响应是通过哪里发送的</td>
+<td align="left">Via: 1.0 fred, 1.1 nowhere.com (Apache/1.1)</td>
+</tr>
+<tr>
+<td align="left">Warning</td>
+<td align="left">警告实体可能存在的问题</td>
+<td align="left">Warning: 199 Miscellaneous warning</td>
+</tr>
+<tr>
+<td align="left">WWW-Authenticate</td>
+<td align="left">表明客户端请求实体应该使用的授权方案</td>
+<td align="left">WWW-Authenticate: Basic</td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-响应状态码"><a href="#HTTP-响应状态码" class="headerlink" title="HTTP 响应状态码"></a>HTTP 响应状态码</h3><p>状态代码有三位数字组成，第一个数字定义了响应的<strong>类别</strong>，且有五种可能取值：</p>
+<ul>
+<li><p>1xx：<strong>指示信息</strong> - 表示请求已接收，继续处理</p>
+</li>
+<li><p>100 客户必须继续发出请求</p>
+<ul>
+<li>101 客户要求服务器根据请求转换 HTTP 协议版本</li>
+</ul>
+</li>
+<li><p>2xx：<strong>成功</strong> - 表示请求已被成功接收、理解、接受</p>
+</li>
+<li><p>200 （成功） 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。</p>
+<ul>
+<li>201 （已创建） 请求成功并且服务器创建了新的资源。</li>
+<li>202 （已接受） 服务器已接受请求，但尚未处理。</li>
+</ul>
+</li>
+<li><p>3xx：<strong>重定向</strong> - 要完成请求必须进行更进一步的操作</p>
+</li>
+<li><p>300 （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p>
+</li>
+<li><p>301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p>
+<ul>
+<li>302 （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+</ul>
+</li>
+<li><p>4xx：<strong>客户端错误</strong> - 请求有语法错误或请求无法实现</p>
+</li>
+<li><p>400 （错误请求） 服务器不理解请求的语法。</p>
+<ul>
+<li>401 （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>403 （禁止） 服务器拒绝请求。</li>
+</ul>
+</li>
+<li><p>5xx：<strong>服务器端错误</strong> - 服务器未能实现合法的请求</p>
+</li>
+<li><p>500 （服务器内部错误） 服务器遇到错误，无法完成请求。</p>
+</li>
+<li><p>501 （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p>
+</li>
+<li><p>502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。</p>
+</li>
+<li><p>503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p>
+</li>
+<li><p>504 （网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p>
+</li>
+<li><p>505 （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</p>
+</li>
+</ul>
+<h3 id="HTTP-响应报文"><a href="#HTTP-响应报文" class="headerlink" title="HTTP 响应报文"></a>HTTP 响应报文</h3><p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w50fsridj20m80g7jrx.jpg" alt></p>
+<h2 id="非持久连接和持久连接"><a href="#非持久连接和持久连接" class="headerlink" title="非持久连接和持久连接"></a>非持久连接和持久连接</h2><p>在实际的应用当中，客户端往往会发送一系列的请求，接着服务器端一一的响应。对于这些请求|响应，如果每次都经过一个单独的 TPC 连接发送，称为非持久链接。反之，如果每次都经过相同的 TCP 连接进行发送，称为持久链接</p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w5876x3xj20hi0cjglu.jpg" alt></p>
+<p>非持久连接在每次的请求|响应之后就会断开连接，下次在重新建立新的 TCP 链接，这样就会造成大量的通信开销。例如前面提到的往返时间( RTT ) 就是在建立 TCP 连接的过程中的代价。</p>
+<p>非持久连接给服务器带来了沉重的负担，每台服务器可能同时面对数以百计甚至更多的请求。持久连接就是为了解决这些问题，其特点是一直保持 TCP 连接状态，直到遇到明确的中断要求之后再中断连接。持久连接减少了通信开销，节省了通信量。</p>
+<h2 id="GET-与-POST-请求之间的区别"><a href="#GET-与-POST-请求之间的区别" class="headerlink" title="GET 与 POST 请求之间的区别"></a>GET 与 POST 请求之间的区别</h2><table>
+<thead>
+<tr>
+<th align="center">区别内容</th>
+<th align="center">GET</th>
+<th align="center">POST</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">点击返回/刷新按钮</td>
+<td align="center">没有影响</td>
+<td align="center">数据会重新发送（浏览器将会提示“数据被重新提交”）</td>
+</tr>
+<tr>
+<td align="center">添加书签</td>
+<td align="center">可以</td>
+<td align="center">不可以</td>
+</tr>
+<tr>
+<td align="center">缓存</td>
+<td align="center">可以</td>
+<td align="center">不可以</td>
+</tr>
+<tr>
+<td align="center">编码类型（Encoding type）</td>
+<td align="center">application/x-www-form-rulencoded</td>
+<td align="center"><code>application/x-www-form-rulencoded</code> or <code>multipart/form-data</code> 请为二进制数据使用 <code>multipart</code> 编码</td>
+</tr>
+<tr>
+<td align="center">历史记录</td>
+<td align="center">有</td>
+<td align="center">没有</td>
+</tr>
+<tr>
+<td align="center">长度限制</td>
+<td align="center">有</td>
+<td align="center">没有</td>
+</tr>
+<tr>
+<td align="center">数据类型限制</td>
+<td align="center">只允许 ASCLll 字符类型</td>
+<td align="center">没有限制，允许二进制数据</td>
+</tr>
+<tr>
+<td align="center">安全性</td>
+<td align="center">查询字符串会显示在地址栏的 URL 上，不安全，<strong>请不要使用 GET 请求提交敏感数据</strong></td>
+<td align="center">因为数据不会显示在地址栏中，也不会缓存下来或保存在浏览记录中，所以 POST 请求比 GET 请求安全，但也不是最安全的方式，如需要传送敏感数据，<strong>请使用数据加密</strong>。</td>
+</tr>
+<tr>
+<td align="center">可见性</td>
+<td align="center">查询字符串在地址栏的 URL 中可见</td>
+<td align="center">查询字符串在地址栏的 URL 中不可见</td>
+</tr>
+</tbody></table>
+<h2 id="HTTP-与-HTTPS"><a href="#HTTP-与-HTTPS" class="headerlink" title="HTTP 与 HTTPS"></a>HTTP 与 HTTPS</h2><h3 id="HTTP-的不足"><a href="#HTTP-的不足" class="headerlink" title="HTTP 的不足"></a>HTTP 的不足</h3><ul>
+<li>通信使用明文(不加密),内容可能会被窃听</li>
+<li>不验证通信方的身份,因此有可能遭遇伪装</li>
+<li>无法证明报文的完整性,所以有可能已遭篡改</li>
+</ul>
+<h3 id="HTTPS-介绍"><a href="#HTTPS-介绍" class="headerlink" title="HTTPS 介绍"></a>HTTPS 介绍</h3><p>HTTP 协议中没有加密机制,但可以通 过和 SSL (Secure Socket Layer, <strong>安全套接层</strong> )或 TLS (Transport Layer Security, <strong>安全层传输协议</strong>)的组合使用,加密 HTTP 的通信内容。属于通信加密，即在整个通信线路中加密。</p>
+<pre class="line-numbers language-text"><code class="language-text">HTTP + 加密 + 认证 + 完整性保护 = HTTPS（HTTP Secure ）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w5c2yjgaj20m80anwec.jpg" alt></p>
+<p>HTTPS 采用<strong>共享密钥加密</strong>（对称）和<strong>公开密钥加密</strong>（非对称）两者并用的<strong>混合</strong>加密机制。若密钥能够实现安全交换,那么有可能会考虑仅使用公开密钥加密来通信。但是公开密钥加密与共享密钥加密相比,其处理速度要慢。</p>
+<blockquote>
+<p>所以应充分利用两者各自的优势, 将多种方法组合起来用于通信。 在<strong>交换密钥</strong>阶段使用<strong>公开密钥加密</strong>方式,之后的建立通信<strong>交换报文</strong>阶段 则使用<strong>共享密钥加密</strong>方式。</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w5dby1hrj20m80fz0tb.jpg" alt></p>
+<p><code>HTTPS</code>握手过程的简单描述如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/e73160eely1g5w5dv56z8j20m80det9g.jpg" alt></p>
+<ol>
+<li><p>浏览器将自己支持的一套加密规则发送给网站。</p>
+<pre><code>服务器获得浏览器公钥</code></pre></li>
+<li><p>网站从中选出一组加密算法与 HASH 算法，并将自己的身份信息以证书的形式发回给浏览器。证书里面包含了网站地址，加密公钥，以及证书的颁发机构等信息。</p>
+<pre><code>浏览器获得服务器公钥</code></pre></li>
+<li><p>获得网站证书之后浏览器要做以下工作：</p>
+<p>(a). 验证证书的合法性（颁发证书的机构是否合法，证书中包含的网站地址是否与正在访问的地址一致等），如果证书受信任，则浏览器栏里面会显示一个小锁头，否则会给出证书不受信的提示。</p>
+<p>(b). 如果证书受信任，或者是用户接受了不受信的证书，浏览器会生成一串随机数的密码（接下来通信的密钥），并用证书中提供的公钥加密（共享密钥加密）。</p>
+<p>(c) 使用约定好的 HASH 计算握手消息，并使用生成的随机数对消息进行加密，最后将之前生成的所有信息发送给网站。</p>
+<pre><code>  浏览器验证 -&gt; 随机密码
+  服务器的公钥加密 -&gt; 通信的密钥
+  通信的密钥 -&gt; 服务器</code></pre></li>
+<li><p>网站接收浏览器发来的数据之后要做以下的操作：</p>
+<p>(a). 使用自己的私钥将信息解密取出密码，使用密码解密浏览器发来的握手消息，并验证 HASH 是否与浏览器发来的一致。</p>
+<p>(b). 使用密码加密一段握手消息，发送给浏览器。</p>
+<pre><code>  服务器用自己的私钥解出随机密码 -&gt; 用密码解密握手消息（共享密钥通信）-&gt; 验证HASH与浏览器是否一致（验证浏览器）</code></pre></li>
+</ol>
+<h3 id="HTTPS-的不足"><a href="#HTTPS-的不足" class="headerlink" title="HTTPS 的不足"></a>HTTPS 的不足</h3><ul>
+<li>加密解密过程复杂，导致访问速度慢</li>
+<li>加密需要认向证机构付费</li>
+<li>整个页面的请求都要使用 HTTPS</li>
+</ul>
+<blockquote>
+<p>参考地址：</p>
+<p><a href="https://www.cnblogs.com/quan-coder/p/9277837.html" target="_blank" rel="noopener">https://www.cnblogs.com/quan-coder/p/9277837.html</a></p>
+<p><a href="https://juejin.im/post/5ba65296f265da0ac8493503" target="_blank" rel="noopener">https://juejin.im/post/5ba65296f265da0ac8493503</a></p>
+<p><a href="https://juejin.im/post/5d0de954e51d4556be5b3a6f" target="_blank" rel="noopener">https://juejin.im/post/5d0de954e51d4556be5b3a6f</a></p>
+<p><a href="http://swiftlet.net/archives/1082" target="_blank" rel="noopener">http://swiftlet.net/archives/1082</a></p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'a76b52887c6f8d0601d5',
+        clientSecret: 'a0a9547d5813572b6e0dfbaff903607a5d6fcdb7',
+        repo: 'daixianjin.github.io',
+        owner: 'daixianjin',
+        admin: "daixianjin",
+        id: '2019-08-11T20-39-21',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/08/12/cookie-session-token-JWT/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="cookie session token">
+                        
+                        <span class="card-title">cookie session token</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要WEB 应用程序是使用 HTTP 协议传输数据，早期处于刚开始发展阶段时，属于文档浏览阶段（ HTTP/0.9 的时候只有文本传输，1.0 开始才支持图片、视频、二进制文件传输），不需要做交互，服务端不需要去记录先前的事务，这样服务端答
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/会话技术/" class="post-category" target="_blank">
+                                    会话技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/会话技术/" target="_blank">
+                        <span class="chip bg-color">会话技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/07/Laravel之处理跨域请求/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Laravel-处理跨域请求">
+                        
+                        <span class="card-title">Laravel-处理跨域请求</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要出于安全性的原因，浏览器会限制 Script 中的跨域请求。由于 XMLHttpRequest 遵循同源策略，所有使用 XMLHttpRequest 构造 HTTP 请求的应用只能访问自己的域名，如果需要构造跨域的请求，那么开发者需要配
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Laravel-扩展包/" target="_blank">
+                        <span class="chip bg-color">Laravel-扩展包</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">49.5k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/daixianjin/daixianjin.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:boyi6868@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=562275977" class="tooltipped" data-tooltip="QQ联系我: 562275977" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

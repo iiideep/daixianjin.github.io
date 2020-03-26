@@ -1,0 +1,877 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Manjaro, DXJblog">
+    <meta name="description" content="Manjaro Linux最强大最牛逼最好的 Linux 桌面发行版本，不接受任何的反驳！！！我是 KDE ，其他版本感觉上面都没有 KDE舒服！反正我感觉是最好用的版本！！！
+Linux 桌面系统排行榜：https://distrowat">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Manjaro | DXJblog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">DXJblog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">DXJblog</div>
+        <div class="logo-desc">
+            
+            可予流浪 寄半分渴望，不敢拼命去闯 就不能被原谅 踏破千山 纵然将鞋磨穿 迎日落再登攀。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Manjaro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-08-04
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        6 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Manjaro-Linux"><a href="#Manjaro-Linux" class="headerlink" title="Manjaro Linux"></a>Manjaro Linux</h2><p>最强大最牛逼最好的 Linux 桌面发行版本，不接受任何的反驳！！！我是 KDE ，其他版本感觉上面都没有 KDE舒服！反正我感觉是最好用的版本！！！</p>
+<p>Linux 桌面系统排行榜：<a href="https://distrowatch.com/" target="_blank" rel="noopener">https://distrowatch.com/</a></p>
+<p><img src="https://i.loli.net/2020/03/22/YeAo9rb6CFSyVW5.png" alt="深度截图_选择区域_20200322025652.png"></p>
+<p><img src="https://i.loli.net/2019/10/11/GiH5keFqWfunK8c.jpg" alt></p>
+<p><img src="https://i.loli.net/2020/03/22/1Zt5pTfmuqFvMhD.png" alt="Screenshot_20200322_171912.png"></p>
+<blockquote>
+<p>为什么会选择 Manjaro 这个发行版本呢？</p>
+<p>1、滚动升级</p>
+<p>2、自动硬件检测安装</p>
+<p>3、先进的包管理、最多软件支持的 Linux 发行版本</p>
+<p>4、超级高度用户自定义、桌面、主题、界面、文件、操作、显示等等，全部可用户自定义</p>
+<p>5、软件版本超级牛逼的同步快，基本与各个软件的版本持平</p>
+<p>6、目前生态最好的一款 Linux 桌面版本之一（在我心里是第一）</p>
+<p>7、本地化相比 18.10 之前已经做的非常好了，我又倒腾了目前 19.0.2 的 KDE 版本</p>
+<p>8、超级稳定</p>
+</blockquote>
+<h3 id="中科大软件源"><a href="#中科大软件源" class="headerlink" title="中科大软件源"></a>中科大软件源</h3><pre><code>1.选择源
+sudo pacman-mirrors -i -c China -m rank 
+运行一段时间后，会出现选择框，这里选择
+http://mirrors.ustc.edu.cn/manjaro
+
+2.刷新缓存
+sudo pacman -Syy
+
+3.修改配置文件
+sudo vim /etc/pacman.conf
+添加到末尾
+[archlinuxcn]
+SigLevel = Optional TrustedOnly
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+
+4.导入 GPG Key
+sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</code></pre><h3 id="最好包管理"><a href="#最好包管理" class="headerlink" title="最好包管理"></a>最好包管理</h3><pre><code># 个人比较喜欢 yaourt
+sudo pacman -S yaourt
+# yay 也是一种选择
+sudo pacman -S yay</code></pre><h3 id="最强-Shell"><a href="#最强-Shell" class="headerlink" title="最强 Shell"></a>最强 Shell</h3><pre><code># 最强 shell 当然个人观念
+sudo pacman -s fish
+# 设置默认，建议不要默认
+sudo chsh -s /usr/bin/fish</code></pre><h3 id="快速启动"><a href="#快速启动" class="headerlink" title="快速启动"></a>快速启动</h3><pre><code># 个人超爱
+sudo pacman -S kupfer
+# 另外推荐
+sudo pacman -S albert</code></pre><h3 id="最好输入法"><a href="#最好输入法" class="headerlink" title="最好输入法"></a>最好输入法</h3><pre><code># 安装企鹅输入法
+1、Fcitx
+2、Fcitx 配置
+3、kcm-fcitx
+sudo pacman -S Sunpinyin
+
+# 修改配置文件,之后注销
+sudo vim /etc/profile
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# 所有地方输入中文
+1、打开 Fcitx 配置
+2、全局配置-&gt;程序-&gt;在窗口间共享状态-&gt;选择所有</code></pre><h3 id="Cisco-AnyConnect"><a href="#Cisco-AnyConnect" class="headerlink" title="Cisco AnyConnect"></a>Cisco AnyConnect</h3><pre><code>### 如果安装了 Cisco 没有问题无需操作,如果有问题请按照下面重新操作
+# 1、注释用户验证
+sudo vim vpn_install.sh 
+# Make sure we are root
+# if [ `id | sed -e &#39;s/(.*//&#39;` != &quot;uid=0&quot; ]; then
+#   echo &quot;Sorry, you need super user privileges to run this script.&quot;
+#   exit 1
+# fi
+
+# 2、创建 rc.d
+sudo mkdir /etc/rc.d
+
+# 3、安装,如果还有权限 root 允许
+./vpn_install.sh
+
+# 4、启动服务
+sudo /etc/rc.d/vpnagentd start
+
+# 错误解决方案
+https://bbs.archlinux.org/viewtopic.php?id=190444
+
+# 以上是下载安装 yaourt 安装完美支持，Manjaro 牛逼！
+yaourt -S cisco-anyconnect</code></pre><h3 id="谷歌浏览器"><a href="#谷歌浏览器" class="headerlink" title="谷歌浏览器"></a>谷歌浏览器</h3><pre><code>sudo pacman -S google-chrome</code></pre><h3 id="MySQL-可视化软件"><a href="#MySQL-可视化软件" class="headerlink" title="MySQL 可视化软件"></a>MySQL 可视化软件</h3><pre><code>yaourt -S valentina-studio</code></pre><h3 id="QQ"><a href="#QQ" class="headerlink" title="QQ"></a>QQ</h3><pre><code># 这个可以说真正原生(PS:基本跟 10 多年前一样，简洁)
+yaourt -s linuxqq
+
+# deepin 打包的 MIT 
+yaourt -S deepin-wine-tim</code></pre><h3 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h3><pre><code># 安装网易云官方
+sudo pacman -S netease-cloud-music
+# 无法输入中文，请自行百度，19.0.2 暂时未解决
+# 这个第三方的也挺不错第三方
+yaourt -S iease-music</code></pre><h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><pre><code># 如果安装 Hexo 使用了 我这么里就不说了，在我 扬帆启航 里面有一个链接里面有详细安装 Hexo 的教程
+在重新装完系统之后，前面部署过的 Hexo 可以继续的使用，只需要安装 Hexo 和删除 Hexo 下面的 .deploy_git/
+即可重新的 Push 到 github 上面！ 
+
+# 安装 hexo
+npm install -g hexo-cli 
+
+# 附上纤细安装 Hexo 文章
+https://godweiyang.com/2018/04/13/hexo-blog/
+https://github.com/blinkfox/hexo-theme-matery</code></pre><h3 id="深度"><a href="#深度" class="headerlink" title="深度"></a>深度</h3><pre><code># 深度终端，说实话 deepin 这个终端真心赞
+sudo pamcan -S deepin-terminal
+# 深度看图
+sudo pacman -S deepin-image-viewer
+# 深度截图
+sudo pacman -S deepin-screenshot</code></pre><h3 id="Teamviewer"><a href="#Teamviewer" class="headerlink" title="Teamviewer"></a>Teamviewer</h3><pre><code># 安装
+sudo pacman -S teamviewer
+# 启动服务
+systemctl start teamviewerd</code></pre><h3 id="百度网盘"><a href="#百度网盘" class="headerlink" title="百度网盘"></a>百度网盘</h3><pre><code># 百度官方 Linux 版本
+sudo pacman -S baidunetdisk-bin</code></pre><h3 id="更新系统后乱码"><a href="#更新系统后乱码" class="headerlink" title="更新系统后乱码"></a>更新系统后乱码</h3><pre><code># 18.10 之前更新系统之后出现乱码问题，缺少中文字体，但是比系统原来字体差许多
+sudo pacman -S wqy-microhei
+
+# 18.10 完成支持本地化！19.0.2 完美！！</code></pre><h3 id="Docky"><a href="#Docky" class="headerlink" title="Docky"></a>Docky</h3><pre><code># 想比较下他比 plank 吃内存一些，但是也不太影响，毕竟 plank 太过于简洁了！外貌协会不摆了！
+sudo pacman -S latte-dock</code></pre><h3 id="搜狗输入法"><a href="#搜狗输入法" class="headerlink" title="搜狗输入法"></a>搜狗输入法</h3><p>时隔差不多 2 年，搜狗更新了！</p>
+<pre><code>1.打开 ”添加/删除软件“
+2.搜索Sogou
+3.安装fcitx-sogoupinyin
+4.安装fcitx-configtool
+5.安装fcitx-qt4
+6.配置~/.xprofile
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
+
+# 如果搜狗输入法不能输入中文检查一下是否有中文语言包，不建议安装搜狗输入法 太老了！而且 18 以后基本安装都有问题，不建议使用</code></pre><h3 id="微信，腾讯视频都出-Linux-版本，期待微信呀"><a href="#微信，腾讯视频都出-Linux-版本，期待微信呀" class="headerlink" title="微信，腾讯视频都出 Linux 版本，期待微信呀"></a>微信，腾讯视频都出 Linux 版本，期待微信呀</h3><pre><code># 这是 deepin 
+yaourt -S deepin-wine-wechat
+# 网页打包版本
+yaourt -S electronic-wechat</code></pre><h3 id="Shutter"><a href="#Shutter" class="headerlink" title="Shutter"></a>Shutter</h3><p>Linux 下面最好的截图软件</p>
+<pre><code>sudo pacman -S Shutter</code></pre><h3 id="Oss"><a href="#Oss" class="headerlink" title="Oss"></a>Oss</h3><pre><code># 1、下载 Oss
+curl https://oss-attachment.cn-hangzhou.oss.aliyun-inc.com/oss-browser/1.9.5/oss-browser-linux-x64.zip
+
+# 2、解压
+unzip oss-browser-linux-x64
+
+# 3、运行
+oss-browser</code></pre><h3 id="亿图思维导图"><a href="#亿图思维导图" class="headerlink" title="亿图思维导图"></a>亿图思维导图</h3><pre><code>yaourt -s mindmaster</code></pre><h3 id="微信开发工具"><a href="#微信开发工具" class="headerlink" title="微信开发工具"></a>微信开发工具</h3><pre><code>sudo pacman -S wechat-devtools</code></pre><h3 id="钉钉"><a href="#钉钉" class="headerlink" title="钉钉"></a>钉钉</h3><pre><code>yaourt -S dingtalk-electron</code></pre><h3 id="Phpstorm"><a href="#Phpstorm" class="headerlink" title="Phpstorm"></a>Phpstorm</h3><pre><code>yaourt -S phpstorm</code></pre><h3 id="Zeal"><a href="#Zeal" class="headerlink" title="Zeal"></a>Zeal</h3><pre><code># Linux 下面最好的离线文档，可以配合这 Phpstrom 使用
+pacman -S zeal
+
+# 安装好之后 Phpstrom 插件当中安装 dash 按住 ctrl+shift+d 即可调出文档</code></pre><h3 id="Navicat"><a href="#Navicat" class="headerlink" title="Navicat"></a>Navicat</h3><pre><code>yaourt -S navicat
+
+# 附上破解 navicat 破解文章
+https://daixianjin.github.io/2019/08/04/Linux%E4%B9%8B%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BBnavicat%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</code></pre><h3 id="Redis-可视化工具"><a href="#Redis-可视化工具" class="headerlink" title="Redis 可视化工具"></a>Redis 可视化工具</h3><pre><code>yaourt -S redis-desktop-manager
+
+yaourt -S another-redis-desktop-manager</code></pre><h3 id="Vs-Code"><a href="#Vs-Code" class="headerlink" title="Vs Code"></a>Vs Code</h3><pre><code>pacman -S visual-studio-code-bin</code></pre><h3 id="DBeaver"><a href="#DBeaver" class="headerlink" title="DBeaver"></a>DBeaver</h3><pre><code>pacman -S dbeaver
+
+# 完美的 Linux 下面数据库可视化工具，换成19.0.2之后非常闪，很难受！</code></pre><h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><pre><code>yaourt -S typora</code></pre><h3 id="Postman"><a href="#Postman" class="headerlink" title="Postman"></a>Postman</h3><pre><code>yaourt -S postman</code></pre><h3 id="Goland"><a href="#Goland" class="headerlink" title="Goland"></a>Goland</h3><pre><code>sudo pacman -S goland</code></pre><h3 id="福昕"><a href="#福昕" class="headerlink" title="福昕"></a>福昕</h3><pre><code>sudo pacman -S foxitreader</code></pre><blockquote>
+<p>好的推荐，请留言告知！</p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'a76b52887c6f8d0601d5',
+        clientSecret: 'a0a9547d5813572b6e0dfbaff903607a5d6fcdb7',
+        repo: 'daixianjin.github.io',
+        owner: 'daixianjin',
+        admin: "daixianjin",
+        id: '2019-08-04T15-57-37',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/08/04/Linux之永久激活navicat实测有效/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Linux-永久激活navicat实测有效">
+                        
+                        <span class="card-title">Linux-永久激活navicat实测有效</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、下载解压第一步相信也就不多说了，也是下载解压好 navicat 之后不要启动他解压好安装好 win 之后关闭 navicat 即可
+2、下载最新的 release
+此为64位可执行文件 32请自行找资源
+
+curl -O -L http
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/03/Laravel之生命周期/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Laravel-生命周期">
+                        
+                        <span class="card-title">Laravel-生命周期</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要在「日常生活」中 使用任何工具时，如果理解了该工具的工作原理。那么用起来就会更加得心应手。应用开发也是如此，当你能真正懂得一个功能背后实现原理时，用起来会更加顺手，方便。
+文档存在目的是为了让你更加清晰地了解 Laravel 框架是如何
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Laravel-生命周期/" target="_blank">
+                        <span class="chip bg-color">Laravel-生命周期</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">49.5k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/daixianjin/daixianjin.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:boyi6868@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=562275977" class="tooltipped" data-tooltip="QQ联系我: 562275977" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
