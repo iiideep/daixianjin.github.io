@@ -220,7 +220,7 @@
       
         <tags>
             
-            <tag> Laravel-定时任务 </tag>
+            <tag> Laravel </tag>
             
         </tags>
       
@@ -370,7 +370,7 @@
       
         <tags>
             
-            <tag> Laravel-日志操作 </tag>
+            <tag> Laravel </tag>
             
         </tags>
       
@@ -571,31 +571,6 @@
         <tags>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Laravel-自定义表单验证类</title>
-      <link href="/2019/08/01/Laravel-%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%B1%BB/"/>
-      <url>/2019/08/01/Laravel-%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%B1%BB/</url>
-      
-        <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>Laravel 提供了几种不同的方法来验证传入应用程序的数据。默认情况下，Laravel 的控制器基类使用 ValidatesRequests Trait，它提供了一种方便的方法去使用各种强大的验证规则来验证传入的 HTTP 请求。</p><h3 id="表单验证类的好处"><a href="#表单验证类的好处" class="headerlink" title="表单验证类的好处"></a>表单验证类的好处</h3><p>一般我们的情况下，我们都是在 Controller 里面写表单验证的逻辑规则然后返回信息错误信息。这样我们的业务和表单逻辑都放在了一起，复用性很差，在要用的基本就是复制和粘贴！</p><p>那么我们可以选择把表单验证独立出来，创建一个表单的验证类，这样复用性也很高，Controller 里面也专注与业务！</p><h3 id="创建表单验证类与操作流程"><a href="#创建表单验证类与操作流程" class="headerlink" title="创建表单验证类与操作流程"></a>创建表单验证类与操作流程</h3><pre><code>php artisan make:request BaseRequest</code></pre><p>创建一个 Base 类，他用来继承与 FormRequest，而我们以后所有的验证类都继承 BaseRequest</p><pre><code>class BaseRequest extends FormRequest{    // 验证是否有权限    public function authorize()    {        return true;    }    public function failedValidation($validator)    {        $response = $validator-&gt;errors()-&gt;first();        throw new ApiErrorException($response,503);    }}</code></pre><h3 id="为什么我们要抛出异常呢？"><a href="#为什么我们要抛出异常呢？" class="headerlink" title="为什么我们要抛出异常呢？"></a>为什么我们要抛出异常呢？</h3><p>Laravel 在验证错误之后，<strong>会自动错误闪存到 Session 当中，并且自动重定向到之前的位置</strong>。Laravel 会自动检测到 Session 当中的错误信息，并且自动绑定到视图当中。如果是 AJAX 请求，会生成一个包含所有验证错误信息的 JSON 响应。这个 JSON 响应会包含一个 HTTP 状态码 422 被发送出去。而我们需要做的就是自定义异常的抛出，来控制错误返回，不需要框架来完成。</p><p>在我们定义 Base 的访问权限为 TRUE 之后，有自定义了异常的抛出。那么此时就可以创建自己需要的验证类了</p><pre><code>php artisan make:request UserRequest</code></pre><pre><code>class UserRequest extends BaseRequest{    public function rules()    {        return [            &#39;user&#39; =&gt; &#39;required&#39;,            &#39;password&#39; =&gt; &#39;required&#39;        ];    }    public function messages()    {        return [            &#39;user.required&#39; =&gt; &#39;账号不能为空&#39;,            &#39;password.required&#39; =&gt; &#39;密码不能为空&#39;,        ];    }}</code></pre><ul><li>rules ：是验证规则</li><li>messages ：是自定义错误的信息</li></ul><p>他们都是自动去调用执行我们不需要去关心他们的执行，只需要知道一个是规则验证一个是返回的错误信息，还有有是他执行后错误的处理，上面也说了一个是闪存 Session 然后重定向一个，一个是 AJAX JSON 的返回！</p><blockquote><p>验证规则是如何运行的呢？你所需要做的就是在控制器方法中类型提示传入的请求。在调用控制器方法之前验证传入的表单请求，这意味着你不需要在控制器中写任何验证逻辑</p></blockquote><p>有了异常抛出，有了规则验证和错误信息，我们该如何使用呢？</p><pre><code>public function login(UserRequest $request){}</code></pre><p>依赖注入，当我们把这个验证类依赖注入到我们要使用的 Controller 中。</p><p>执行流程：如果说，我们的规则验证不通过，那么我们就会自动抛出异常，程序不会继续向下执行，如果说验证没有问题，那么程序顺序执行！</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Laravel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Laravel-表单验证操作 </tag>
             
         </tags>
       
