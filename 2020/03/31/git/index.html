@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Composer, DXJblog">
-    <meta name="description" content="摘要先了解一下历史，从拷贝第三方代码到项目中(1994)，到 PEAR 安装依赖包(1999)，再到 Composer 兴起(2012)，PHP 社区经历了将近 20 年的探索。PHP 这门古老的语言，也在不断的发展更新，在 Web 领域一">
+    <meta name="keywords" content="Git, DXJblog">
+    <meta name="description" content="摘要可以毫不夸张的来说，Git 是每个程序必备的一个技能，在团队协作开发当中，Git 的存在犹如黑暗当中的一道光照亮着我们。设想一下，如果你在一个团队开发当中，还是使用传统的 FTP 上传模式，你会多疯狂？其实很想写一段很长的话来表达，传统">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Composer | DXJblog</title>
+    <title>Git | DXJblog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -198,13 +198,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Composer
+                        Git
                     </div>
                 </div>
             </div>
@@ -315,8 +315,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Composer/" target="_blank">
-                                <span class="chip bg-color">Composer</span>
+                            <a href="/tags/Git/" target="_blank">
+                                <span class="chip bg-color">Git</span>
                             </a>
                         
                     </div>
@@ -327,8 +327,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Composer/" class="post-category" target="_blank">
-                                Composer
+                            <a href="/categories/Git/" class="post-category" target="_blank">
+                                Git
                             </a>
                         
                     </div>
@@ -339,21 +339,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-06
+                    2020-03-31
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.4k
+                        438
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        1 分
                     </div>
                     
                 
@@ -369,115 +369,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>先了解一下历史，从拷贝第三方代码到项目中(1994)，到 PEAR 安装依赖包(1999)，再到 Composer 兴起(2012)，PHP 社区经历了将近 20 年的探索。PHP 这门古老的语言，也在不断的发展更新，在 Web 领域一直发光发热。 Composer 作为目前 PHP 包依赖管理的最佳工具，值得每一位 PHP 开发人员掌握。</p>
-<h3 id="中文官网"><a href="#中文官网" class="headerlink" title="中文官网"></a>中文官网</h3><p><a href="https://www.phpcomposer.com/" target="_blank" rel="noopener">https://www.phpcomposer.com/</a></p>
-<h3 id="什么是-Composer-？"><a href="#什么是-Composer-？" class="headerlink" title="什么是 Composer ？"></a>什么是 Composer ？</h3><p>是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会自动帮你安装这些依赖的库文件。</p>
-<h3 id="扩展和包"><a href="#扩展和包" class="headerlink" title="扩展和包"></a>扩展和包</h3><p>拓展和包是两个非常相近的概念。在 PHP 世界里，一般可以这样理解和区分两者：拓展（extension）和模块（module）等价，是用 C 语言写的功能合集。</p>
-<p>包（package）和库（library）等价，主要是用 PHP 实现的功能合集；拓展以动态链接库（.dll或.so）的形式加载，包则是通过 require/include 方式加载。绝大部分时候，两者混用不会造成理解上的困难。</p>
-<p>常见的拓展：GD、ZIP 、Memcached 、MySQLi 、 Redis 等 </p>
-<p>常见的包：PHPMailer 、PHPOffice 、HTMLPurifier 等</p>
-<h3 id="PEAR-与-PECL"><a href="#PEAR-与-PECL" class="headerlink" title="PEAR 与 PECL"></a>PEAR 与 PECL</h3><p>在 Composer 流行之前，PEAR 和 PECL 是更为 PHP 开发者所知的两个工具（社区）。PEAR 是 PHP 拓展和应用仓库（PHP Extension and Application Repository）的缩写，官网<a href="http://pear.php.net/" target="_blank" rel="noopener">http://pear.php.net</a>；PECL 是 PHP 拓展社区库（PHP Extension Community Library）的缩写，官网<a href="http://pecl.php.net/" target="_blank" rel="noopener">http://pecl.php.net</a>。</p>
-<p>两者的区别可用拓展和包来区分：PECL 托管拓展，源代码多为 C 文件，例如 APC、AMPQ 等；PEAR 托管包，功能用 PHP 实现，如 PHP CodeSniffer、HTTP Request 等；PEAR 对应 pear 命令， PECL 对应 pecl 命令，可用这两个命令安装和管理拓展和包（ pear 的 build/pickle 子命令也可以编译 PECL 中的拓展）。两者互为补充，官网以姐妹（sisters）形容两者的关系。</p>
-<p>PECL 是官方拓展的补充，目前仍处于活跃状态，一些优秀的拓展有成为官方拓展的潜质。韩天峰大神的 swoole 拓展也托管在 PECL 中，国内名气非常高。相比之下 PEAR 已是明日黄花。PEAR2 和 Pyrus（下一代的PEAR 包安装工具，基于 PHP5.3+ 构建，官网<a href="http://pear2.php.net/" target="_blank" rel="noopener">http://pear2.php.net</a>）的出现也未能挽救 PEAR 。PEAR 没落伴随着本文主角 Composer 的兴起。</p>
-<p>PEAR 的定位是“提供可复用的 PHP 组件”，以中心化的方式为开发者提供功能包。中心化发布的方式保证了代码的质量，同时带来维护上的不便：通过评审的包才能发布，包过时现象严重。PEAR 安装的包是全局的，不能为单独项目安装依赖包，非特权用户不能自行安装依赖包。其他缺点还包括糟糕的依赖管理。随着 Github 的流行和 Composer 的出现，包管理进入 Composer 时代。PEAR 已经完成其历史使命，可以安心的去了。</p>
-<h3 id="Composer"><a href="#Composer" class="headerlink" title="Composer"></a>Composer</h3><p>严格来说，Composer 的定位是依赖管理工具而非包管理器。Composer 中文网对 Composer 工作介绍如下。Composer 将这样为你解决问题：</p>
-<p>a) 你有一个项目依赖于若干个库。</p>
-<p>b) 其中一些库依赖于其他库。</p>
-<p>c) 你声明你所依赖的东西。</p>
-<p>d) Composer 会找出哪个版本的包需要安装，并安装它们（将它们下载到你的项目中）。</p>
-<p>PEAR 能做的事情，Composer 都能做（包括安装 PECL 拓展），部分还能做得更好。Composer 默认把包安装在项目目录下，普通用户就能正常使用（ Composer 官方建议不要以 root 身份执行 Composer 命令）；鼓励遵循最佳实践（即大名鼎鼎的 PSR 规范，详情见 PHP-FIG 官网<a href="https://www.php-fig.org/" target="_blank" rel="noopener">https://www.php-fig.org</a>），极大的推动 PHP 社区编码风格的规范化；Composer 是去中心化的平台，任何人均可发布代码包；发布包无需评审，包的质量由用户投票决定…作为 PEAR 的继任者，Composer 的表现经受住了社区的考验，并成为事实上的依赖管理标准工具。</p>
-<p>Composer 目前已经形成庞大的生态，在数量上，Composer 的包远超 PEAR 。由于任何人均可自由发布包且无需评审，Composer 生态中的包可能存在代码质量参差不齐、代码风格各异、后门漏洞等隐忧。另外 Composer 的依赖管理以项目为单位，一台机器上可能多次安装同一个包。但瑕不掩瑜，总体而言，Composer 极大的改变了 PHP 的开发生态，促进了代码交流和社区发展。</p>
-<h3 id="Composer-用法"><a href="#Composer-用法" class="headerlink" title="Composer 用法"></a>Composer 用法</h3><p>Composer 为管理的项目的依赖而生，项目中的 composer.json 文件是其工作的依据。该文件中最重要的部分是 require 部分，该部分告诉 Composer 期望安装的<strong>包及其版本</strong>，例如：</p>
-<pre><code>{
-    &quot;name&quot;: &quot;tinywan/easy-live&quot;,
-    &quot;description&quot;: &quot;nginx live module&quot;,
-    &quot;type&quot;: &quot;library&quot;,
-    &quot;license&quot;: &quot;MIT&quot;,
-    &quot;authors&quot;: [
-        {
-            &quot;name&quot;: &quot;Tinywan&quot;,
-            &quot;email&quot;: &quot;756684177@qq.com&quot;
-        }
-    ],
-    &quot;require&quot;: {
-        &quot;php&quot;: &quot;&gt;=7.0&quot;
-    },
-    &quot;autoload&quot;: {
-        &quot;psr-4&quot;: {
-            &quot;live\\&quot;: &quot;src&quot;
-        }
-    }
-}</code></pre><p>用 Lravel 的 composer.json  演示：</p>
-<p><img src="https://i.loli.net/2020/02/16/7aY8NL5EqGxQ3yh.png" alt="2020-02-16_13-43.png"></p>
-<p> 然后运行 composer install 命令，Composer 会自动分析依赖，安装最合适的包到 vendor 目录下。加 -v (-vv, -vvv)选项会打印命令执行过程中的详细信息。安装完毕后，vendor 目录下会生成 autoload.php 文件。在项目的入口文件中包含此文件： <strong>require DIR . “/vendor/autoload.php”</strong>;，接下来便可在项目的任何地方引用依赖包中的接口和类。</p>
-<p>除 install 命令，Composer 提供了许多其他命令管理依赖。常用的命令场景包括：查找依赖、引入依赖、安装依赖、更新依赖。分别对应的命令是：</p>
-<table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">composer search</td>
-<td align="center">根据关键字查找依赖包</td>
-</tr>
-<tr>
-<td align="center">composer request</td>
-<td align="center">引入依赖，声明项目或者全局( global，用户名全局，非系统全局)依赖某个包</td>
-</tr>
-<tr>
-<td align="center">composer install</td>
-<td align="center">安装 composer.json 声明的依赖包，最终安装的依赖包版本可能取决于有无 composer.lock 文件</td>
-</tr>
-<tr>
-<td align="center">composer update</td>
-<td align="center">更新依赖到最新版本，相当于删除 composer.lock 文件后执行 composer install</td>
-</tr>
-<tr>
-<td align="center">composer info</td>
-<td align="center">查看安装的依赖包信息，与 composer show 等价</td>
-</tr>
-<tr>
-<td align="center">composer dumpautoload</td>
-<td align="center">加 -o 选项可导出优化的加载器</td>
-</tr>
-<tr>
-<td align="center">composer why(-not)</td>
-<td align="center">查看（不）安装某个包的原因</td>
-</tr>
-</tbody></table>
-<h3 id="Composer-加速"><a href="#Composer-加速" class="headerlink" title="Composer 加速"></a>Composer 加速</h3><p>有的时候会因为各种原因，我们使用 Composer 的时候回感觉安装的特别慢，网络问题是一个方面，我们可以使用一些国内的镜像来解决网络的问题，但是依然有些慢，因为 Composer 是单进程方式下载的，也就是说 Composer 安装完一个依赖，才回去下载并安装另一个依赖，任何网络问题都会让这个进程卡主。那么有没有一种方法让 Composer 并发下载所有依赖呢，这样整体安装速度不就会快很多吗？</p>
-<p><a href="https://github.com/hirak/prestissimo" target="_blank" rel="noopener">hirak/prestissimo</a> 就是利用这个思路来加速 Composer 的，看一下这个包的描述 ——composer parallel install plugin （Composer 并行安装插件）。</p>
-<pre><code>composer global require hirak/prestissimo</code></pre><p>切换国内阿里云镜像</p>
-<p><a href="https://developer.aliyun.com/composer" target="_blank" rel="noopener">https://developer.aliyun.com/composer</a></p>
-<pre><code>composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</code></pre><h3 id="Composer-加载机制"><a href="#Composer-加载机制" class="headerlink" title="Composer 加载机制"></a>Composer 加载机制</h3><p>使用 Composer 最大的好处是只需最开始 require 一个 autoload.php 文件，就可以 new 你所需要的类了，不再需要传统的方式 A 文件内各种 include 跳到 B 文件又各种 include，非常头疼。</p>
-<p>Composer 的核心就是二个函数：spl_autoload_register 与 require_once</p>
-<p>spl_autoload_register — 注册给定的函数作为 __autoload 的实现</p>
-<p><strong>说明</strong></p>
-<pre><code>spl_autoload_register ([ callable $autoload_function [, bool $throw = true [, bool $prepend = false ]]] ) : bool</code></pre><p>将函数注册到 SPL __autoload 函数队列中。如果该队列中的函数尚未激活，则激活它们。</p>
-<p>如果在你的程序中已经实现了<a href="https://www.php.net/manual/zh/function.autoload.php" target="_blank" rel="noopener">__autoload()</a> 函数，它必须显式注册到<a href="https://www.php.net/manual/zh/function.autoload.php" target="_blank" rel="noopener">__autoload()</a> 队列中。因为  <strong>spl_autoload_register()</strong> 函数会将 Zend Engine 中的<a href="https://www.php.net/manual/zh/function.autoload.php" target="_blank" rel="noopener">__autoload()</a> 函数取代为 <a href="https://www.php.net/manual/zh/function.spl-autoload.php" target="_blank" rel="noopener">spl_autoload()</a> 或<a href="https://www.php.net/manual/zh/function.spl-autoload-call.php" target="_blank" rel="noopener">spl_autoload_call()</a>。</p>
-<p>如果需要多条 autoload 函数，<strong>spl_autoload_register()</strong> 满足了此类需求。 它实际上创建了 autoload 函数的队列，按定义时的顺序逐个执行。相比之下， <a href="https://www.php.net/manual/zh/function.autoload.php" target="_blank" rel="noopener">__autoload()</a> 只可以定义一次。</p>
-<p>注意：__autoload() 函数在 PHP7.2 以后就不支持了。综合起来该用那个明白来吧。</p>
-<p>一个简单的自动加载：</p>
-<pre><code>// loadclass函数不具备自动加载类的功能
-function loadclass($classname){
-    $filename = &quot;./class/&quot;.$classname.&quot;.class.php&quot;;
-    if(is_file($filename)){
-        include $filename;
-    }
-}
-// spl_autoload_register()函数让这个 loadclass 具备了自动加载类的功能
-spl_autoload_register(&quot;loadclass&quot;);</code></pre><p>不使用 Composer 的代码执行会比使用 Composer 的代码执行更快，Composer 是自动加载，尽管是不用的库。这个效率毕竟大概是在几十ms的差距。我们可以优化自动加载，做一个项目 Composer 优化提速。</p>
-<pre class="line-numbers language-php"><code class="language-php">composer dumpautoload <span class="token operator">-</span>o<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>此命令不止针对于 Laravel 程序，适用于所有使用 <code>composer</code> 来构建的程序。此命令会把 <code>PSR-0</code> 和 <code>PSR-4</code> 转换为一个类映射表，来提高类的加载速度。</p>
-<p>当然作为 艺术家的框架，Laravel 也为我们提供了 Composer 的优化处理</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token shell-comment comment"># 官方解释：缓存框架引导文件</span>
-php artisan optimize<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<blockquote>
-<p>参考地址</p>
-<p><a href="https://www.cnblogs.com/tinywan/p/8855236.html" target="_blank" rel="noopener">https://www.cnblogs.com/tinywan/p/8855236.html</a></p>
-<p><a href="https://learnku.com/courses/laravel-package/2019/hirakprestissimo/1695" target="_blank" rel="noopener">https://learnku.com/courses/laravel-package/2019/hirakprestissimo/1695</a></p>
+                <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>可以毫不夸张的来说，Git 是每个程序必备的一个技能，在团队协作开发当中，Git 的存在犹如黑暗当中的一道光照亮着我们。设想一下，如果你在一个团队开发当中，还是使用传统的 FTP 上传模式，你会多疯狂？其实很想写一段很长的话来表达，传统模式和 Git 的对比，不过一想意义不大！Git 作为当前时代下最强大的版本控制系统（当然，这里是个人的看法）强大肯定有他独特的地方！</p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Git 是 Linux 创始人 Linus Torvalds 开源的一款分布式版本控制系统，它能帮助我们追踪代码，版本回溯等，是项目版本管理的不二选择工具（当然还是个人看法），</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre><code># 设置用户名和邮箱帐号
+git config --global user.name  &quot;your user name&quot;
+git config --global user.email &quot;your email&quot;
+
+# 生成密钥，连续三下空格不如就需要密码
+ssh-keygen -t rsa -b 4096 -C &quot;your emai在l&quot;
+
+# 读取公钥配置，Gitee 或 Github 当中设置 SSH Key
+cat ~/.ssh/id_rsa.pub
+
+# 修改 Git 配置文件选用 SSH 连接
+vim .git/config
+## 修改前
+[remote &quot;origin&quot;]
+    url = https://gitee.com/xx/xxx.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+## 修改后
+[remote &quot;origin&quot;]
+    url = git@gitee.com:xx/xx.git
+    fetch = +refs/heads/*:refs/remotes/origin/*</code></pre><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><pre><code># 查看状态,从中可以看出修改，添加
+git status
+
+# 抛弃修改，无法抛弃新增与修改
+git checkout &quot;抛弃文件&quot;
+
+# 拉取更新
+git pull xx &quot;可以选择分支&quot;
+
+# 上传代码
+git push xx &quot;可以选择分支&quot;
+
+# 查看分支
+git branch
+
+# 查看日志
+git log
+</code></pre><blockquote>
+<p>未完待续。。。</p>
 </blockquote>
 
             </div>
@@ -517,7 +448,7 @@ php artisan optimize<span aria-hidden="true" class="line-numbers-rows"><span></s
         repo: 'daixianjin.github.io',
         owner: 'daixianjin',
         admin: "daixianjin",
-        id: '2019-09-06T21-33-31',
+        id: '2020-03-31T21-28-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -538,47 +469,48 @@ php artisan optimize<span aria-hidden="true" class="line-numbers-rows"><span></s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/07/Laravel-日志操作/">
+                <a href="/2020/03/31/git/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Laravel-日志操作">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Git">
                         
-                        <span class="card-title">Laravel-日志操作</span>
+                        <span class="card-title">Git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            摘要为了帮助你更多的了解应用程序中到底发生了什么，Laravel 提供了强大的日志服务，允许你将日志消息、系统错误日志记录到文件，甚至使用 Slack 通知到你的整个团队。
-在 Laravel 框架中，Laravel 使用 Monolog 
+                            摘要可以毫不夸张的来说，Git 是每个程序必备的一个技能，在团队协作开发当中，Git 的存在犹如黑暗当中的一道光照亮着我们。设想一下，如果你在一个团队开发当中，还是使用传统的 FTP 上传模式，你会多疯狂？其实很想写一段很长的话来表达，传统
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Laravel/" class="post-category" target="_blank">
-                                    Laravel
+                            <a href="/categories/Git/" class="post-category" target="_blank">
+                                    Git
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Laravel/" target="_blank">
-                        <span class="chip bg-color">Laravel</span>
+                    <a href="/tags/Git/" target="_blank">
+                        <span class="chip bg-color">Git</span>
                     </a>
                     
                 </div>
@@ -592,32 +524,31 @@ php artisan optimize<span aria-hidden="true" class="line-numbers-rows"><span></s
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/21/MySQL-存储引擎/">
+                <a href="/2020/02/28/Golang-学习笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL-存储引擎">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Golang-学习笔记">
                         
-                        <span class="card-title">MySQL-存储引擎</span>
+                        <span class="card-title">Golang-学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            摘要
-MySQL 当中最最常用的存储引擎- Myisam 和 Innodb，他们二兄弟是 MySQL 当中最最常用的二个存储引擎了。当然 MySQL 的存储引擎不止他们二兄弟还有别的一些存储引擎，本着既存在即合理的原则，我们不能单方面的去评
+                            摘要Go 是一门全新的语言。尽管它从现有的语言中借鉴了许多理念，但其与众不同的特性， 使得使用 Go 编程在本质上就不同于其它语言。做为 PHP 开发人员，第二门语言选 Go 的同撩还是比较多，从此可以论证 Go 还是非常值得学习！第一次听
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MySQL/" class="post-category" target="_blank">
-                                    MySQL
+                            <a href="/categories/Go/" class="post-category" target="_blank">
+                                    Go
                                 </a>
                             
                             
@@ -627,8 +558,8 @@ MySQL 当中最最常用的存储引擎- Myisam 和 Innodb，他们二兄弟是 
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/" target="_blank">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/Go/" target="_blank">
+                        <span class="chip bg-color">Go</span>
                     </a>
                     
                 </div>

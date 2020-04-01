@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git</title>
+      <link href="/2020/03/31/git/"/>
+      <url>/2020/03/31/git/</url>
+      
+        <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>可以毫不夸张的来说，Git 是每个程序必备的一个技能，在团队协作开发当中，Git 的存在犹如黑暗当中的一道光照亮着我们。设想一下，如果你在一个团队开发当中，还是使用传统的 FTP 上传模式，你会多疯狂？其实很想写一段很长的话来表达，传统模式和 Git 的对比，不过一想意义不大！Git 作为当前时代下最强大的版本控制系统（当然，这里是个人的看法）强大肯定有他独特的地方！</p><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Git 是 Linux 创始人 Linus Torvalds 开源的一款分布式版本控制系统，它能帮助我们追踪代码，版本回溯等，是项目版本管理的不二选择工具（当然还是个人看法），</p><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre><code># 设置用户名和邮箱帐号git config --global user.name  &quot;your user name&quot;git config --global user.email &quot;your email&quot;# 生成密钥，连续三下空格不如就需要密码ssh-keygen -t rsa -b 4096 -C &quot;your emai在l&quot;# 读取公钥配置，Gitee 或 Github 当中设置 SSH Keycat ~/.ssh/id_rsa.pub# 修改 Git 配置文件选用 SSH 连接vim .git/config## 修改前[remote &quot;origin&quot;]    url = https://gitee.com/xx/xxx.git    fetch = +refs/heads/*:refs/remotes/origin/*## 修改后[remote &quot;origin&quot;]    url = git@gitee.com:xx/xx.git    fetch = +refs/heads/*:refs/remotes/origin/*</code></pre><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><pre><code># 查看状态,从中可以看出修改，添加git status# 抛弃修改，无法抛弃新增与修改git checkout &quot;抛弃文件&quot;# 拉取更新git pull xx &quot;可以选择分支&quot;# 上传代码git push xx &quot;可以选择分支&quot;# 查看分支git branch# 查看日志git log</code></pre><blockquote><p>未完待续。。。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Golang-学习笔记</title>
       <link href="/2020/02/28/Golang-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2020/02/28/Golang-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
