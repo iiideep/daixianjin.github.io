@@ -346,14 +346,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        1.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        6 分
                     </div>
                     
                 
@@ -393,12 +393,12 @@ vim .git/config
 ## 修改后
 [remote &quot;origin&quot;]
     url = git@gitee.com:xx/xx.git
-    fetch = +refs/heads/*:refs/remotes/origin/*</code></pre><h4 id="Git-关键知识点"><a href="#Git-关键知识点" class="headerlink" title="Git 关键知识点"></a>Git 关键知识点</h4><p>工作区：添加、编辑、修改，删除等操作</p>
+    fetch = +refs/heads/*:refs/remotes/origin/*</code></pre><h3 id="Git-知识点"><a href="#Git-知识点" class="headerlink" title="Git 知识点"></a>Git 知识点</h3><p>工作区：添加、编辑、修改，删除等操作</p>
 <p>暂存区：暂存已修改的文件、最后一起入版本库</p>
 <p>版本库：也叫本地版本库，因为 Git 是分布式版本控制系统，大部分提交都是对本地仓库而言的，不依赖网络，最后一次会推送的到远程仓库。此时对外不可见</p>
 <p>最终入库：确定都没问题保存到仓库、成为一个新的版本，并且外可见</p>
 <p>个人感觉知道这四点就可以了，在深入那么就是 Git 专家了，我们平常使用不会有太深层的东西！</p>
-<h4 id="简单流程"><a href="#简单流程" class="headerlink" title="简单流程"></a>简单流程</h4><pre><code># 查看状态，工作区
+<h3 id="简单流程"><a href="#简单流程" class="headerlink" title="简单流程"></a>简单流程</h3><pre><code># 查看状态，工作区
 git status
 
 # 提交到暂存区
@@ -408,12 +408,14 @@ git add . 或 文件地址 // . 代表所有
 git commit -m &#39;操作备注&#39; // 操作备注是个好习惯，一定要注释详细
 
 # 拉取更新，以防冲突
-git pull origin master
+git pull origin 分支
 
 # 最终入库，这一步一定要确认正确无误！对外可见
-git push origin master</code></pre><p><img src="https://i.loli.net/2020/04/07/Z4BECwmIMVpyuUH.png" alt="深度截图_选择区域_20200407212112.png"></p>
+git push origin 分支
+
+## 千万不要究竟前面的 origin 它没啥意义</code></pre><p><img src="https://i.loli.net/2020/04/07/Z4BECwmIMVpyuUH.png" alt="深度截图_选择区域_20200407212112.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/tXJMUNuCwcayBlk.png" alt="深度截图_选择区域_20200407212241.png"></p>
-<h4 id="简单流程详解"><a href="#简单流程详解" class="headerlink" title="简单流程详解"></a>简单流程详解</h4><h5 id="1、查看状态，可以看见工作区的：增、删、改"><a href="#1、查看状态，可以看见工作区的：增、删、改" class="headerlink" title="1、查看状态，可以看见工作区的：增、删、改"></a>1、查看状态，可以看见工作区的：增、删、改</h5><pre><code>git status</code></pre><p><img src="https://i.loli.net/2020/04/07/uWZcGX9gKsOlJfp.png" alt="深度截图_选择区域_20200407212838.png"></p>
+<h3 id="简单流程详解"><a href="#简单流程详解" class="headerlink" title="简单流程详解"></a>简单流程详解</h3><h5 id="1、查看状态，可以看见工作区的：增、删、改"><a href="#1、查看状态，可以看见工作区的：增、删、改" class="headerlink" title="1、查看状态，可以看见工作区的：增、删、改"></a>1、查看状态，可以看见工作区的：增、删、改</h5><pre><code>git status</code></pre><p><img src="https://i.loli.net/2020/04/07/uWZcGX9gKsOlJfp.png" alt="深度截图_选择区域_20200407212838.png"></p>
 <h5 id="2、抛弃工作区：改、删"><a href="#2、抛弃工作区：改、删" class="headerlink" title="2、抛弃工作区：改、删"></a>2、抛弃工作区：改、删</h5><pre><code># 方法一 无法抛弃增加
 git checkout . 或 文件地址 // . 代表所有
 
@@ -421,23 +423,27 @@ git checkout . 或 文件地址 // . 代表所有
 git restore . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/TXml5xJ37CPcukY.png" alt="深度截图_选择区域_20200407213221.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/Li5SYygn7hRdW4F.png" alt="深度截图_选择区域_20200407213402.png"></p>
 <h5 id="3、添加到暂存区"><a href="#3、添加到暂存区" class="headerlink" title="3、添加到暂存区"></a>3、添加到暂存区</h5><pre><code>git add . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/8ISEzARQpelxdO7.png" alt="深度截图_选择区域_20200407221459.png"></p>
-<h5 id="4、取消暂存"><a href="#4、取消暂存" class="headerlink" title="4、取消暂存"></a>4、取消暂存</h5><pre><code>git restore --staged  或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/wWl1yMtPHVkF5aD.png" alt="深度截图_选择区域_20200407221936.png"></p>
+<h5 id="4、取消暂存"><a href="#4、取消暂存" class="headerlink" title="4、取消暂存"></a>4、取消暂存</h5><pre><code>git restore --staged . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/wWl1yMtPHVkF5aD.png" alt="深度截图_选择区域_20200407221936.png"></p>
 <h5 id="5、提交版本库，对外不可见"><a href="#5、提交版本库，对外不可见" class="headerlink" title="5、提交版本库，对外不可见"></a>5、提交版本库，对外不可见</h5><pre><code>git commit -m &#39;操作备注&#39; // 操作备注是个好习惯，一定要注释详细</code></pre><p><img src="https://i.loli.net/2020/04/07/iJqodIUkE6CA7hZ.png" alt="深度截图_选择区域_20200407222339.png"></p>
 <h5 id="6、回滚本地仓库"><a href="#6、回滚本地仓库" class="headerlink" title="6、回滚本地仓库"></a>6、回滚本地仓库</h5><pre><code># 查看日志，查看日志后按 q 才能退出日志
-git log                  
+git log     
+
 # 常用命令一，比较暴力:重置 HEAD、索引和工作区
-git reset --herd ID         // 回滚到指定的版本
-git reset --hard HEAD^   // 回退到上个版本
-git reset --hard HEAD~3  // 回退到前 3 次提交之前，以此类推，回退到 n 次提交之前
+git reset --herd CommitID          // 回滚到指定的版本
+git reset --hard HEAD^             // 回退到上个版本
+git reset --hard HEAD~3           // 回退到前 3 次提交之前，以此类推，回退到 n 次提交之前
 
 # 常用命令二，稍微温柔:重置 HEAD
-git reset --soft ID
+git reset --soft CommitID
 
 # 其他命令
     -q, --quiet           安静模式，只报告错误
     --mixed               重置 HEAD 和索引
-    --merge               重置 HEAD、索引和工作区
-    --keep                重置 HEAD 但保存本地变更</code></pre><p><img src="https://i.loli.net/2020/04/07/VPiJlgUMyfXD547.png" alt="深度截图_选择区域_20200407223542.png"></p>
+    --merge               重置 HEAD 索引和工作区
+    --keep                重置 HEAD 但保存本地变更
+
+## HEAD 就是当前分支的意思    
+## 索引是工作目录和仓库之间的临时区域。 你可以使用索引来构建一组你想要一起提交的更改。 创建提交时，提交的内容是当前索引中的内容，而不是工作目录中的内容</code></pre><p><img src="https://i.loli.net/2020/04/07/VPiJlgUMyfXD547.png" alt="深度截图_选择区域_20200407223542.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/oNrseyhKltidmOa.png" alt="深度截图_选择区域_20200407224056.png"></p>
 <h5 id="7、确认无误，拉取更新，最终入库，对外可见"><a href="#7、确认无误，拉取更新，最终入库，对外可见" class="headerlink" title="7、确认无误，拉取更新，最终入库，对外可见"></a>7、确认无误，拉取更新，最终入库，对外可见</h5><pre><code># 拉取更新，确认无冲突
 git pull origin master
@@ -445,10 +451,39 @@ git pull origin master
 # 确认无误，最终入库，对外可见
 git push origin master</code></pre><p><img src="https://i.loli.net/2020/04/07/Uwuli13d26QhWKY.png" alt="深度截图_选择区域_20200407225246.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/jR7NOp6vUtmzK4d.png" alt="深度截图_选择区域_20200407225437.png"></p>
-<pre><code>
-未完待续...</code></pre><blockquote>
+<h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><h5 id="1、查看分支"><a href="#1、查看分支" class="headerlink" title="1、查看分支"></a>1、查看分支</h5><pre><code># 查看所有分支
+git branch -a
+
+# 查看远程分支
+git branch -r
+
+# 查看本地分支
+git branch</code></pre><p><img src="https://i.loli.net/2020/04/08/zBbaVGur6SEvKIX.png" alt="深度截图_选择区域_20200408214000.png"></p>
+<h5 id="2、创建本地分支"><a href="#2、创建本地分支" class="headerlink" title="2、创建本地分支"></a>2、创建本地分支</h5><pre><code>git branch name</code></pre><p><img src="https://i.loli.net/2020/04/08/msFoXIx2a6CB53u.png" alt="深度截图_选择区域_20200408214154.png"></p>
+<h5 id="3、切换本地分支"><a href="#3、切换本地分支" class="headerlink" title="3、切换本地分支"></a>3、切换本地分支</h5><pre><code>git checkout name</code></pre><p><img src="https://i.loli.net/2020/04/08/ZET76LxYcqkrj4D.png" alt="深度截图_选择区域_20200408214320.png"></p>
+<h5 id="4、创建远程分支"><a href="#4、创建远程分支" class="headerlink" title="4、创建远程分支"></a>4、创建远程分支</h5><pre><code># 意思就是本地创建了分支，然后 push 到仓库去
+git push origin test</code></pre><p><img src="https://i.loli.net/2020/04/08/OSuFDzJUl7MTi5Z.png" alt="深度截图_选择区域_20200408215535.png"></p>
+<h5 id="5、改变上游信息"><a href="#5、改变上游信息" class="headerlink" title="5、改变上游信息"></a>5、改变上游信息</h5><pre><code>git branch -u origin name
+
+## 当我们创建了分支并且切换到了这个分支，我们 push 和 pull 没有上游默认的分支，需 push origin 分支 和 push origin 分支
+## 当我们默认上游分支后即可直接 push 或 pull</code></pre><p><img src="https://i.loli.net/2020/04/08/GBDLzjUKkrnt2bS.png" alt="深度截图_选择区域_20200408220852.png"></p>
+<h5 id="6、删除分支"><a href="#6、删除分支" class="headerlink" title="6、删除分支"></a>6、删除分支</h5><pre><code># 删除本地分支
+git branch -d name
+
+# 删除远程分支，谨慎使用
+git push --delete origin name</code></pre><p><img src="https://i.loli.net/2020/04/08/fUQSyoD1h8XMGV6.png" alt="深度截图_选择区域_20200408222113.png"></p>
+<h5 id="7、合并分支"><a href="#7、合并分支" class="headerlink" title="7、合并分支"></a>7、合并分支</h5><pre><code># 切换到主分支
+git checkout master
+
+# 合并分支
+git merge orgin/name
+git pull
+git push</code></pre><p><img src="https://i.loli.net/2020/04/08/oWNAg21pnlEhFXw.png" alt="深度截图_选择区域_20200408222736.png"></p>
+<h3 id="仓库操作"><a href="#仓库操作" class="headerlink" title="仓库操作"></a>仓库操作</h3><p>未完待续…</p>
+<blockquote>
 <p>参考地址：</p>
 <p><a href="https://zh.wikipedia.org/wiki/Git" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Git</a></p>
+<p><a href="https://kb.kutu66.com/git/post_486783" target="_blank" rel="noopener">https://kb.kutu66.com/git/post_486783</a></p>
 </blockquote>
 
             </div>
@@ -720,7 +755,7 @@ git push origin master</code></pre><p><img src="https://i.loli.net/2020/04/07/Uw
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">42.6k</span>
+                <span class="white-color">42.9k</span>
             
 
             
