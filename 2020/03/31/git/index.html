@@ -346,14 +346,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.8k
+                        2.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        8 分
                     </div>
                     
                 
@@ -373,17 +373,21 @@
 <h4 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h4><p>自 2002 年开始，<a href="https://zh.wikipedia.org/wiki/林纳斯·托瓦兹" target="_blank" rel="noopener">林纳斯·托瓦兹</a> 决定使用 <a href="https://zh.wikipedia.org/wiki/BitKeeper" target="_blank" rel="noopener">BitKeeper</a> 作为 <a href="https://zh.wikipedia.org/wiki/Linux內核" target="_blank" rel="noopener">Linux内核</a> 主要的版本控制系统用以维护代码。因为 BitKeeper 为商业软件（BitMover 公司免费授权给 Linux 社区使用），这个决定在社区中长期遭受质疑。在 Linux 社区中，特别是 <a href="https://zh.wikipedia.org/wiki/理查德·斯托曼" target="_blank" rel="noopener">理查德·斯托曼</a> 与 <a href="https://zh.wikipedia.org/wiki/自由軟體基金會" target="_blank" rel="noopener">自由软件基金会</a> 的成员，主张应该使用开放源代码的软件来作为 Linux 内核的版本控制系统。<a href="https://zh.wikipedia.org/wiki/林纳斯·托瓦兹" target="_blank" rel="noopener">林纳斯·托瓦兹</a> 曾考虑过采用现成软件作为版本控制系统（例如<a href="https://zh.wikipedia.org/wiki/Monotone" target="_blank" rel="noopener">Monotone</a>），但这些软件都存在一些问题，特别是性能不佳。现成的方案，如 <a href="https://zh.wikipedia.org/wiki/協作版本系統" target="_blank" rel="noopener">CVS</a> 的架构，受到 <a href="https://zh.wikipedia.org/wiki/林纳斯·托瓦兹" target="_blank" rel="noopener">林纳斯·托瓦兹</a> 的批评。</p>
 <p>2005 年，<a href="https://zh.wikipedia.org/wiki/安德魯·垂鳩" target="_blank" rel="noopener">安德鲁·垂鸠</a>写了一个简单程序，可以连接 BitKeeper 的存储库，BitKeeper 著作权拥有者<a href="https://zh.wikipedia.org/wiki/拉里·麥沃伊" target="_blank" rel="noopener">拉里·麦沃伊</a> 认为 <a href="https://zh.wikipedia.org/wiki/安德魯·垂鳩" target="_blank" rel="noopener">安德鲁·垂鸠</a> 对 BitKeeper 内部使用的协议进行逆向工程，决定收回无偿使用 BitKeeper 的许可。Linux 内核开发团队与 BitMover 公司进行磋商，但无法解决他们之间的歧见。<a href="https://zh.wikipedia.org/wiki/林纳斯·托瓦兹" target="_blank" rel="noopener">林纳斯·托瓦兹</a> 决定自行开发版本控制系统替代 BitKeeper ，以 <code>十天</code> 的时间编写出 Git 第一个版本。</p>
 <h4 id="Git-是什么？"><a href="#Git-是什么？" class="headerlink" title="Git 是什么？"></a>Git 是什么？</h4><p>Git 是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git 提供代码追踪，版本回溯等等功能，其实简单一句话来说，Git 就是项目版本管理的工具！</p>
-<h4 id="Git-与-Github-什么关系？"><a href="#Git-与-Github-什么关系？" class="headerlink" title="Git 与 Github 什么关系？"></a>Git 与 Github 什么关系？</h4><p>Git 只是一个工具，而 Github 是一个代码托管的仓库。而 Git 可以去操作仓库，二者都是配合着使用。当然 Github 是国外免费的仓库，国内的免费仓库我们用的最多的是码云。</p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h5 id="1、设置用户名和邮箱帐号"><a href="#1、设置用户名和邮箱帐号" class="headerlink" title="1、设置用户名和邮箱帐号"></a>1、设置用户名和邮箱帐号</h5><pre><code>git config --global user.name  &quot;your user name&quot;
-git config --global user.email &quot;your email&quot;</code></pre><h5 id="2、克隆项目"><a href="#2、克隆项目" class="headerlink" title="2、克隆项目"></a>2、克隆项目</h5><pre><code># 当我们克隆项目时，可以选择 HTTPS 和 SSH 
-git clone 项目 github 地址
+<h4 id="Git-与-Github-什么关系？"><a href="#Git-与-Github-什么关系？" class="headerlink" title="Git 与 Github 什么关系？"></a>Git 与 Github 什么关系？</h4><p>Git 只是一个工具，而 Github 是一个代码托管的仓库。而 Git 可以去操作仓库，二者都是配合着使用。当然 Github 是国外免费的仓库，国内的免费仓库我们用的最多的是码云。Git 要比 Github 先问世。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="1、设置用户名和邮箱帐号"><a href="#1、设置用户名和邮箱帐号" class="headerlink" title="1、设置用户名和邮箱帐号"></a>1、设置用户名和邮箱帐号</h4><pre><code>git config --global user.name  &quot;your user name&quot;
+git config --global user.email &quot;your email&quot;</code></pre><h4 id="2、克隆项目"><a href="#2、克隆项目" class="headerlink" title="2、克隆项目"></a>2、克隆项目</h4><pre><code># 克隆项目，可以选择 HTTPS 和 SSH 
 
-SSH   一次操作永久生效，当然也需要配置密钥
-HTTPS 每次都需要输入账号与密码</code></pre><h5 id="3、生成密钥密钥"><a href="#3、生成密钥密钥" class="headerlink" title="3、生成密钥密钥"></a>3、生成密钥密钥</h5><pre><code># 生成密钥，连续三下空格
+git clone 项目地址
+git clone -b [分支] 项目地址
+
+SSH   一次操作永久生效,需配置密钥
+HTTPS 每次都需要输入账号与密码</code></pre><h4 id="3、生成密钥密钥"><a href="#3、生成密钥密钥" class="headerlink" title="3、生成密钥密钥"></a>3、生成密钥密钥</h4><pre><code># 生成密钥，连续三下空格
 ssh-keygen -t rsa -b 4096 -C &quot;your email&quot;
 
-# 读取公钥配置，Gitee 或 Github 当中设置 SSH Key
-cat ~/.ssh/id_rsa.pub</code></pre><h5 id="4、修改-Git-连接方式"><a href="#4、修改-Git-连接方式" class="headerlink" title="4、修改 Git 连接方式"></a>4、修改 Git 连接方式</h5><pre><code># 如果开始选择的 HTTPS 连接方式，那么配置密钥后可以选择 SSH 连接，这样就可以免密操作
+# 读取公钥
+cat ~/.ssh/id_rsa.pub
+
+## 之后在自己仓库设置里面,SSH Key 当中填写公钥</code></pre><h4 id="4、修改-Git-连接方式"><a href="#4、修改-Git-连接方式" class="headerlink" title="4、修改 Git 连接方式"></a>4、修改 Git 连接方式</h4><pre><code># 如果开始选择的 HTTPS 连接方式，那么配置密钥后可以选择 SSH 连接，这样就可以免密操作
 vim .git/config
 
 ## 修改前
@@ -408,28 +412,28 @@ git add . 或 文件地址 // . 代表所有
 git commit -m &#39;操作备注&#39; // 操作备注是个好习惯，一定要注释详细
 
 # 拉取更新，以防冲突
-git pull origin 分支
+git pull origin [分支]
 
 # 最终入库，这一步一定要确认正确无误！对外可见
-git push origin 分支
+git push origin [分支]
 
-## 千万不要究竟前面的 origin 它没啥意义</code></pre><p><img src="https://i.loli.net/2020/04/07/Z4BECwmIMVpyuUH.png" alt="深度截图_选择区域_20200407212112.png"></p>
+## 千万不要纠结前面的 origin 它没啥意义</code></pre><p><img src="https://i.loli.net/2020/04/07/Z4BECwmIMVpyuUH.png" alt="深度截图_选择区域_20200407212112.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/tXJMUNuCwcayBlk.png" alt="深度截图_选择区域_20200407212241.png"></p>
-<h3 id="简单流程详解"><a href="#简单流程详解" class="headerlink" title="简单流程详解"></a>简单流程详解</h3><h5 id="1、查看状态，可以看见工作区的：增、删、改"><a href="#1、查看状态，可以看见工作区的：增、删、改" class="headerlink" title="1、查看状态，可以看见工作区的：增、删、改"></a>1、查看状态，可以看见工作区的：增、删、改</h5><pre><code>git status</code></pre><p><img src="https://i.loli.net/2020/04/07/uWZcGX9gKsOlJfp.png" alt="深度截图_选择区域_20200407212838.png"></p>
-<h5 id="2、抛弃工作区：改、删"><a href="#2、抛弃工作区：改、删" class="headerlink" title="2、抛弃工作区：改、删"></a>2、抛弃工作区：改、删</h5><pre><code># 方法一 无法抛弃增加
+<h3 id="简单流程详解"><a href="#简单流程详解" class="headerlink" title="简单流程详解"></a>简单流程详解</h3><h4 id="1、查看状态，可以看见工作区的：增、删、改"><a href="#1、查看状态，可以看见工作区的：增、删、改" class="headerlink" title="1、查看状态，可以看见工作区的：增、删、改"></a>1、查看状态，可以看见工作区的：增、删、改</h4><pre><code>git status</code></pre><p><img src="https://i.loli.net/2020/04/07/uWZcGX9gKsOlJfp.png" alt="深度截图_选择区域_20200407212838.png"></p>
+<h4 id="2、抛弃工作区：改、删"><a href="#2、抛弃工作区：改、删" class="headerlink" title="2、抛弃工作区：改、删"></a>2、抛弃工作区：改、删</h4><pre><code># 方法一 无法抛弃增加
 git checkout . 或 文件地址 // . 代表所有
 
 # 方法二 无法抛弃增加
 git restore . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/TXml5xJ37CPcukY.png" alt="深度截图_选择区域_20200407213221.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/Li5SYygn7hRdW4F.png" alt="深度截图_选择区域_20200407213402.png"></p>
-<h5 id="3、添加到暂存区"><a href="#3、添加到暂存区" class="headerlink" title="3、添加到暂存区"></a>3、添加到暂存区</h5><pre><code>git add . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/8ISEzARQpelxdO7.png" alt="深度截图_选择区域_20200407221459.png"></p>
-<h5 id="4、取消暂存"><a href="#4、取消暂存" class="headerlink" title="4、取消暂存"></a>4、取消暂存</h5><pre><code>git restore --staged . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/wWl1yMtPHVkF5aD.png" alt="深度截图_选择区域_20200407221936.png"></p>
-<h5 id="5、提交版本库，对外不可见"><a href="#5、提交版本库，对外不可见" class="headerlink" title="5、提交版本库，对外不可见"></a>5、提交版本库，对外不可见</h5><pre><code>git commit -m &#39;操作备注&#39; // 操作备注是个好习惯，一定要注释详细</code></pre><p><img src="https://i.loli.net/2020/04/07/iJqodIUkE6CA7hZ.png" alt="深度截图_选择区域_20200407222339.png"></p>
-<h5 id="6、回滚本地仓库"><a href="#6、回滚本地仓库" class="headerlink" title="6、回滚本地仓库"></a>6、回滚本地仓库</h5><pre><code># 查看日志，查看日志后按 q 才能退出日志
+<h4 id="3、添加到暂存区"><a href="#3、添加到暂存区" class="headerlink" title="3、添加到暂存区"></a>3、添加到暂存区</h4><pre><code>git add . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/8ISEzARQpelxdO7.png" alt="深度截图_选择区域_20200407221459.png"></p>
+<h4 id="4、取消暂存"><a href="#4、取消暂存" class="headerlink" title="4、取消暂存"></a>4、取消暂存</h4><pre><code>git restore --staged . 或 文件地址 // . 代表所有</code></pre><p><img src="https://i.loli.net/2020/04/07/wWl1yMtPHVkF5aD.png" alt="深度截图_选择区域_20200407221936.png"></p>
+<h4 id="5、提交版本库，对外不可见"><a href="#5、提交版本库，对外不可见" class="headerlink" title="5、提交版本库，对外不可见"></a>5、提交版本库，对外不可见</h4><pre><code>git commit -m &#39;操作备注&#39; // 操作备注是个好习惯，一定要注释详细</code></pre><p><img src="https://i.loli.net/2020/04/07/iJqodIUkE6CA7hZ.png" alt="深度截图_选择区域_20200407222339.png"></p>
+<h4 id="6、回滚本地仓库"><a href="#6、回滚本地仓库" class="headerlink" title="6、回滚本地仓库"></a>6、回滚本地仓库</h4><pre><code># 查看日志，查看日志后按 q 才能退出日志
 git log     
 
 # 常用命令一，比较暴力:重置 HEAD、索引和工作区
-git reset --herd CommitID          // 回滚到指定的版本
+git reset --herd CommitID           // 回滚到指定的版本
 git reset --hard HEAD^             // 回退到上个版本
 git reset --hard HEAD~3           // 回退到前 3 次提交之前，以此类推，回退到 n 次提交之前
 
@@ -437,7 +441,6 @@ git reset --hard HEAD~3           // 回退到前 3 次提交之前，以此类�
 git reset --soft CommitID
 
 # 其他命令
-    -q, --quiet           安静模式，只报告错误
     --mixed               重置 HEAD 和索引
     --merge               重置 HEAD 索引和工作区
     --keep                重置 HEAD 但保存本地变更
@@ -445,13 +448,13 @@ git reset --soft CommitID
 ## HEAD 就是当前分支的意思    
 ## 索引是工作目录和仓库之间的临时区域。 你可以使用索引来构建一组你想要一起提交的更改。 创建提交时，提交的内容是当前索引中的内容，而不是工作目录中的内容</code></pre><p><img src="https://i.loli.net/2020/04/07/VPiJlgUMyfXD547.png" alt="深度截图_选择区域_20200407223542.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/oNrseyhKltidmOa.png" alt="深度截图_选择区域_20200407224056.png"></p>
-<h5 id="7、确认无误，拉取更新，最终入库，对外可见"><a href="#7、确认无误，拉取更新，最终入库，对外可见" class="headerlink" title="7、确认无误，拉取更新，最终入库，对外可见"></a>7、确认无误，拉取更新，最终入库，对外可见</h5><pre><code># 拉取更新，确认无冲突
-git pull origin master
+<h4 id="7、确认无误，拉取更新，最终入库，对外可见"><a href="#7、确认无误，拉取更新，最终入库，对外可见" class="headerlink" title="7、确认无误，拉取更新，最终入库，对外可见"></a>7、确认无误，拉取更新，最终入库，对外可见</h4><pre><code># 拉取更新，确认无冲突
+git pull origin [分支]
 
 # 确认无误，最终入库，对外可见
-git push origin master</code></pre><p><img src="https://i.loli.net/2020/04/07/Uwuli13d26QhWKY.png" alt="深度截图_选择区域_20200407225246.png"></p>
+git push origin [分支]</code></pre><p><img src="https://i.loli.net/2020/04/07/Uwuli13d26QhWKY.png" alt="深度截图_选择区域_20200407225246.png"></p>
 <p><img src="https://i.loli.net/2020/04/07/jR7NOp6vUtmzK4d.png" alt="深度截图_选择区域_20200407225437.png"></p>
-<h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><h5 id="1、查看分支"><a href="#1、查看分支" class="headerlink" title="1、查看分支"></a>1、查看分支</h5><pre><code># 查看所有分支
+<h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><h4 id="1、查看分支"><a href="#1、查看分支" class="headerlink" title="1、查看分支"></a>1、查看分支</h4><pre><code># 查看所有分支
 git branch -a
 
 # 查看远程分支
@@ -459,27 +462,64 @@ git branch -r
 
 # 查看本地分支
 git branch</code></pre><p><img src="https://i.loli.net/2020/04/08/zBbaVGur6SEvKIX.png" alt="深度截图_选择区域_20200408214000.png"></p>
-<h5 id="2、创建本地分支"><a href="#2、创建本地分支" class="headerlink" title="2、创建本地分支"></a>2、创建本地分支</h5><pre><code>git branch name</code></pre><p><img src="https://i.loli.net/2020/04/08/msFoXIx2a6CB53u.png" alt="深度截图_选择区域_20200408214154.png"></p>
-<h5 id="3、切换本地分支"><a href="#3、切换本地分支" class="headerlink" title="3、切换本地分支"></a>3、切换本地分支</h5><pre><code>git checkout name</code></pre><p><img src="https://i.loli.net/2020/04/08/ZET76LxYcqkrj4D.png" alt="深度截图_选择区域_20200408214320.png"></p>
-<h5 id="4、创建远程分支"><a href="#4、创建远程分支" class="headerlink" title="4、创建远程分支"></a>4、创建远程分支</h5><pre><code># 意思就是本地创建了分支，然后 push 到仓库去
-git push origin test</code></pre><p><img src="https://i.loli.net/2020/04/08/OSuFDzJUl7MTi5Z.png" alt="深度截图_选择区域_20200408215535.png"></p>
-<h5 id="5、改变上游信息"><a href="#5、改变上游信息" class="headerlink" title="5、改变上游信息"></a>5、改变上游信息</h5><pre><code>git branch -u origin name
+<h4 id="2、创建本地分支"><a href="#2、创建本地分支" class="headerlink" title="2、创建本地分支"></a>2、创建本地分支</h4><pre><code>git branch [分支]</code></pre><p><img src="https://i.loli.net/2020/04/08/msFoXIx2a6CB53u.png" alt="深度截图_选择区域_20200408214154.png"></p>
+<h4 id="3、切换本地分支"><a href="#3、切换本地分支" class="headerlink" title="3、切换本地分支"></a>3、切换本地分支</h4><pre><code>git checkout [分支]</code></pre><p><img src="https://i.loli.net/2020/04/09/Jd7uxagTpG6Km3y.png" alt="深度截图_选择区域_20200409150934.png"></p>
+<h4 id="4、创建远程分支"><a href="#4、创建远程分支" class="headerlink" title="4、创建远程分支"></a>4、创建远程分支</h4><pre><code># 意思就是本地创建了分支，然后 push 到仓库去
+git push origin [分支]</code></pre><p><img src="https://i.loli.net/2020/04/08/OSuFDzJUl7MTi5Z.png" alt="深度截图_选择区域_20200408215535.png"></p>
+<h4 id="5、改变上游信息-追踪"><a href="#5、改变上游信息-追踪" class="headerlink" title="5、改变上游信息(追踪)"></a>5、改变上游信息(追踪)</h4><pre><code>git branch -u origin [分支]
 
 ## 当我们创建了分支并且切换到了这个分支，我们 push 和 pull 没有上游默认的分支，需 push origin 分支 和 push origin 分支
 ## 当我们默认上游分支后即可直接 push 或 pull</code></pre><p><img src="https://i.loli.net/2020/04/08/GBDLzjUKkrnt2bS.png" alt="深度截图_选择区域_20200408220852.png"></p>
-<h5 id="6、删除分支"><a href="#6、删除分支" class="headerlink" title="6、删除分支"></a>6、删除分支</h5><pre><code># 删除本地分支
-git branch -d name
+<h4 id="6、删除分支"><a href="#6、删除分支" class="headerlink" title="6、删除分支"></a>6、删除分支</h4><pre><code># 删除本地分支
+git branch -d [分支]
 
 # 删除远程分支，谨慎使用
-git push --delete origin name</code></pre><p><img src="https://i.loli.net/2020/04/08/fUQSyoD1h8XMGV6.png" alt="深度截图_选择区域_20200408222113.png"></p>
-<h5 id="7、合并分支"><a href="#7、合并分支" class="headerlink" title="7、合并分支"></a>7、合并分支</h5><pre><code># 切换到主分支
-git checkout master
+git push --delete origin [分支]</code></pre><p><img src="https://i.loli.net/2020/04/08/fUQSyoD1h8XMGV6.png" alt="深度截图_选择区域_20200408222113.png"></p>
+<h4 id="7、合并分支"><a href="#7、合并分支" class="headerlink" title="7、合并分支"></a>7、合并分支</h4><pre><code># 切换到主分支
+git checkout [分支]
 
 # 合并分支
-git merge orgin/name
+git merge orgin/[分支]
 git pull
 git push</code></pre><p><img src="https://i.loli.net/2020/04/08/oWNAg21pnlEhFXw.png" alt="深度截图_选择区域_20200408222736.png"></p>
-<h3 id="仓库操作"><a href="#仓库操作" class="headerlink" title="仓库操作"></a>仓库操作</h3><p>未完待续…</p>
+<h4 id="8、远程分支"><a href="#8、远程分支" class="headerlink" title="8、远程分支"></a>8、远程分支</h4><p>当我们 Git 不存在远程分支时，我们操作就会受阻，此时就需要 remote 命令来帮我们解决!</p>
+<p><img src="https://i.loli.net/2020/04/09/OocNkM26qmIxaXQ.png" alt="深度截图_选择区域_20200409221753.png"></p>
+<pre><code># 查看这个仓库
+git remote 
+
+# 查看详情
+git remote -v</code></pre><p><img src="https://i.loli.net/2020/04/09/p2ZNYbvDUGiOJtg.png" alt="深度截图_选择区域_20200409222132.png"></p>
+<pre><code># 添加远程分支
+git remote add [分支] [地址]
+
+# 更新远程跟踪分支
+git fetch [分支]
+
+# 改变上游
+git branch -u [分支]</code></pre><p><img src="https://i.loli.net/2020/04/09/RNgS4EicVfyjtaZ.png" alt="深度截图_选择区域_20200409223333.png"></p>
+<pre><code># 重命名远程追踪分支
+git remote rename [原始分支] [新分支]</code></pre><p><img src="https://i.loli.net/2020/04/09/7L8DQzHY1jduJ5A.png" alt="深度截图_选择区域_20200409223659.png"></p>
+<pre><code># 删除远程追踪分支，删除之后追踪无效
+git remote remove [分支]</code></pre><p><img src="https://i.loli.net/2020/04/09/BbQAXdD6LGrsSjl.png" alt="深度截图_选择区域_20200409223855.png"></p>
+<h3 id="仓库操作"><a href="#仓库操作" class="headerlink" title="仓库操作"></a>仓库操作</h3><h4 id="1、忽略文件"><a href="#1、忽略文件" class="headerlink" title="1、忽略文件"></a>1、忽略文件</h4><pre><code># 在本地项目里面当中添加 .gitignore 文件
+touch .gitignore</code></pre><p><img src="https://i.loli.net/2020/04/09/kHQ7v4sVx2BizIg.png" alt="深度截图_选择区域_20200409224803.png"></p>
+<pre><code># 把要忽略的文件或目录写到 .gitignore 里面
+vim .gitignore
+.gitignore</code></pre><p><code>当然这里只是效果演示，.gitignore 肯定是需要上传仓库，这样才能同步，不然团队开发当中，你忽略了这个文件，同时没有，那么这就尴尬了！</code></p>
+<p><img src="https://i.loli.net/2020/04/09/Z4oRxNSOUkKVHpu.png" alt="深度截图_选择区域_20200409225037.png"></p>
+<h4 id="2、删除远程仓库文件"><a href="#2、删除远程仓库文件" class="headerlink" title="2、删除远程仓库文件"></a>2、删除远程仓库文件</h4><pre><code># 比如项目 vendor 目录传了上去（我同事就经常这样）
+
+git rm -r --cached [文件或目录]
+git commit -m &#39;备注&#39;
+git push
+
+# 修改 .gitignore 忽略文件
+/vendor/*.*
+
+git add . 
+git commit -m &#39;备注&#39;
+git push</code></pre><p><img src="https://i.loli.net/2020/04/09/DO6XNdfMwPy4Rkv.png" alt="深度截图_选择区域_20200409231340.png"></p>
+<p>Git 日常使用这些命令，个人感觉完全够了。当然 Git 肯定不止这么一点点操作命令，这些命令也就算刚刚入门 Git，Git 是一个非常强大非常牛逼的版本管理工具，想深入 Git 可以继续查询资料学习！日常使用还有什么不足的地方，欢迎留言补充！</p>
 <blockquote>
 <p>参考地址：</p>
 <p><a href="https://zh.wikipedia.org/wiki/Git" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Git</a></p>
@@ -755,7 +795,7 @@ git push</code></pre><p><img src="https://i.loli.net/2020/04/08/oWNAg21pnlEhFXw.
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">42.9k</span>
+                <span class="white-color">43.3k</span>
             
 
             
