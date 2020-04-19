@@ -349,14 +349,14 @@ LXC 也就是 Linux 容器虚拟化技术。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.8k
+                        3.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        10 分
+                        13 分
                     </div>
                     
                 
@@ -419,24 +419,20 @@ LXC 也就是 Linux 容器虚拟化技术。
 <td align="center">启动 docker</td>
 </tr>
 <tr>
+<td align="center">systemctl restart docker</td>
+<td align="center">重启 docker</td>
+</tr>
+<tr>
 <td align="center">docker images</td>
 <td align="center">查看所有镜像</td>
 </tr>
 <tr>
-<td align="center">docker pull &lt;库上的镜像&gt;</td>
+<td align="center">docker pull 镜像</td>
 <td align="center">在 dockerhub 当中拉取镜像</td>
 </tr>
 <tr>
-<td align="center">docker rmi &lt;id/名称&gt;</td>
+<td align="center">docker rmi 镜像</td>
 <td align="center">删除镜像</td>
-</tr>
-<tr>
-<td align="center">docker run -p 80 –name nginx -d nginx</td>
-<td align="center">创建容器：p端口号 d后台运行</td>
-</tr>
-<tr>
-<td align="center">docker exec -it &lt;容器名称&gt; dash</td>
-<td align="center">进入容器</td>
 </tr>
 <tr>
 <td align="center">docker ps</td>
@@ -447,70 +443,172 @@ LXC 也就是 Linux 容器虚拟化技术。
 <td align="center">查看所有容器</td>
 </tr>
 <tr>
-<td align="center">docker rm &lt;id/名称&gt;</td>
-<td align="center">删除容器：要先关闭容器才能删</td>
+<td align="center">docker exec -it 容器 bash</td>
+<td align="center">进入容器</td>
 </tr>
 <tr>
-<td align="center">docker stop &lt;容器&gt;</td>
+<td align="center">docker rm 容器</td>
+<td align="center">删除容器，要先关闭容器才能删</td>
+</tr>
+<tr>
+<td align="center">docker stop 容器</td>
 <td align="center">停止容器</td>
 </tr>
 <tr>
-<td align="center">docker start &lt;容器&gt;</td>
+<td align="center">docker start 容器</td>
 <td align="center">启动容器</td>
 </tr>
 <tr>
-<td align="center">docker restart &lt;容器&gt;</td>
+<td align="center">docker restart 容器</td>
 <td align="center">重启容器</td>
 </tr>
 <tr>
-<td align="center">docker cp &lt;容器名称&gt;:/&lt;容器里文件&gt;</td>
-<td align="center">docker 复制容器文件</td>
+<td align="center">docker cp 宿主机目录 容器名称:/容器里文件</td>
+<td align="center">复制宿主机文件，到容器</td>
 </tr>
 <tr>
-<td align="center">docker -v &lt;本地文件&gt;:/&lt;容器里文件&gt;</td>
-<td align="center">docker 映射文件</td>
+<td align="center">docker cp 容器名称:/容器文件  宿主机目录</td>
+<td align="center">复制容器文件，到宿主机</td>
+</tr>
+<tr>
+<td align="center">docker -v 本地文件:/容器文件</td>
+<td align="center">映射文件，宿主机容器文件同步</td>
 </tr>
 </tbody></table>
-<h3 id="MySQL-安装"><a href="#MySQL-安装" class="headerlink" title="MySQL 安装"></a>MySQL 安装</h3><p>从 Dockerhub 拉取 MySQL 镜像</p>
-<pre><code>docker pull mysql</code></pre><p>实例容器,启动数据库：</p>
-<pre><code>docker run -p 3306:3306 --name mysql -v /xxx:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -d --privileged=true mysql
+<h3 id="安装-Docker-ce"><a href="#安装-Docker-ce" class="headerlink" title="安装 Docker-ce"></a>安装 Docker-ce</h3><h4 id="1、ubuntu"><a href="#1、ubuntu" class="headerlink" title="1、ubuntu"></a>1、ubuntu</h4><pre><code>1、若安装过先删除，若无忽略
+sudo apt-get remove docker docker-engine docker.io
 
-### 命令说明：
-run 创建一个容器 
---name 给容器的名称 （如果留空，docker会自动分配一个名称）
--v 映射文件，预留，也可以不要
--p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口
--e MYSQL_ROOT_PASSWORD=root：初始化 root 用户的密码
--d 后台运行容器
---privileged=true  可能会碰到权限问题，需要加参数
+2、安装扩展
+sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 
-# 进入容器
-docker exec -it mysql dash 
+3、中科大源 GPG 密钥
+curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+4、更新
+apt update install
+
+5、安装
+apt install docker-ce</code></pre><h4 id="2、centos"><a href="#2、centos" class="headerlink" title="2、centos"></a>2、centos</h4><pre><code>1、若安装过先删除，若无忽略
+sudo yum remove docker docker-common docker-selinux docker-engine
+
+2、安装扩展
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+3、下载 repo 文件
+wget -O /etc/yum.repos.d/docker-ce.repo https://mirrors.huaweicloud.com/docker-ce/linux/centos/docker-ce.repo
+
+4、软件仓库地址替换为：
+sudo sed -i &#39;s+download.docker.com+mirrors.huaweicloud.com/docker-ce+&#39; /etc/yum.repos.d/docker-ce.repo
+
+5、更新索引文件并安装
+sudo yum makecache fast
+sudo yum install docker-ce</code></pre><h4 id="3、dockerhub-国内源"><a href="#3、dockerhub-国内源" class="headerlink" title="3、dockerhub 国内源"></a>3、dockerhub 国内源</h4><pre><code>1、编辑配置文件
+vim /etc/docker/daemon.json
+
+2、添加中科大源
+{
+  &quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn/&quot;]
+}
+
+# 如果 etc/docker 下不存在 daemon.json，新建一个即可
+
+3、重启 docker
+systemctl restart docker</code></pre><h3 id="MySQL-安装"><a href="#MySQL-安装" class="headerlink" title="MySQL 安装"></a>MySQL 安装</h3><h4 id="1、从-Dockerhub-拉取-MySQL-镜像"><a href="#1、从-Dockerhub-拉取-MySQL-镜像" class="headerlink" title="1、从 Dockerhub 拉取 MySQL 镜像"></a>1、从 Dockerhub 拉取 MySQL 镜像</h4><pre><code>docker pull mysql</code></pre><h4 id="2、创建容器"><a href="#2、创建容器" class="headerlink" title="2、创建容器"></a>2、创建容器</h4><pre><code>docker run -p 3306:3306 --name mysql -v /xxx:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -d --privileged=true mysql</code></pre><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">命令详解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">run</td>
+<td align="center">创建一个容器</td>
+</tr>
+<tr>
+<td align="center">–name</td>
+<td align="center">指定容器名称，为空 docker 自动分配名称</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">映射文件，宿主机容器文件同步</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td align="center">端口映射，将容器的 3306 端口映射到主机的 3306 端口</td>
+</tr>
+<tr>
+<td align="center">-e</td>
+<td align="center">设置环境变量，初始化 Mysql 密码</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">后台运行容器</td>
+</tr>
+<tr>
+<td align="center">–privileged=true</td>
+<td align="center">可能会碰到权限问题，需要加参数</td>
+</tr>
+</tbody></table>
+<h4 id="3、基本配置"><a href="#3、基本配置" class="headerlink" title="3、基本配置"></a>3、基本配置</h4><pre><code># 进入容器
+docker exec -it mysql bash 
+
+# 更换软件源，中科大源
+sed -i &#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list
+apt update
 
 # 修改密码认证 mysql 8 加密方式改变了
 mysql&gt;ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;root&#39;;
 mysql&gt;flush privileges;
 
-# 创建一个帐号，并且赋予权限
+# 如果需要创建一个帐号，并且赋予权限，不需要忽略
 mysql&gt;create user &#39;用户名&#39;@&#39;访问主机&#39; identified by &#39;密码&#39;;
 mysql&gt;grant 权限 on *.* to &#39;帐号&#39;@&#39;%&#39; WITH GRANT OPTION;
 
-# 中科大源,然后下载需要的软件
-sed -i &#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list
-apt update
+# 修改 /etc/mysql/conf.d 下面的 mysql.cnf 添加以下配置，没有就创建 mysql.cnf
+[mysqld]
+port=3306
+default_authentication_plugin=mysql_native_password
 
-# 修改 /etc/mysql/conf.d 下面的 myqsl.cnf 添加以下配置 注意配置当中的 mysql 要改为 mysqld
-default_authentication_plugin=mysql_native_password</code></pre><h3 id="PHP-FPM-安装"><a href="#PHP-FPM-安装" class="headerlink" title="PHP-FPM 安装"></a>PHP-FPM 安装</h3><pre><code>docker pull php:fpm</code></pre><p>实例容器,启动 PHP：</p>
-<pre><code># 创建容器并且关联 MySQL
-docker run --name php-fpm -p 9000:9000 --link mysql:mysql -v /宿主机存放代码的目录:/var/www/html -it -d php:fpm
-
-### 命令说明：
-run 创建一个新的容器
---name 指定容器的名称
--p 9000:9000：将容器的 9000 端口映射到主机的 9000 端口
-php-fpm 是 Dockerhub 上下载镜像名称（如果本地没有可用的镜像，Docker会自动下载一个）
--it 表示让容器的标准输入打开,并且分配一个伪终端
--d 后台启动。
+# 退出容器，重启容器
+systemctl restart mysql</code></pre><h3 id="PHP-FPM-安装"><a href="#PHP-FPM-安装" class="headerlink" title="PHP-FPM 安装"></a>PHP-FPM 安装</h3><h4 id="1、从-Dockerhub-拉取-PHP-镜像"><a href="#1、从-Dockerhub-拉取-PHP-镜像" class="headerlink" title="1、从 Dockerhub 拉取 PHP 镜像"></a>1、从 Dockerhub 拉取 PHP 镜像</h4><pre><code>docker pull php:fpm</code></pre><h4 id="2、创建容器-1"><a href="#2、创建容器-1" class="headerlink" title="2、创建容器"></a>2、创建容器</h4><pre><code># 创建容器并且关联 MySQL
+docker run --name php-fpm -p 9000:9000 --link mysql -v /宿主机存放代码的目录:/var/www/html -it -d php:fpm</code></pre><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">命令详解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">run</td>
+<td align="center">创建一个容器</td>
+</tr>
+<tr>
+<td align="center">–name</td>
+<td align="center">指定容器名称，为空 docker 自动分配名称</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td align="center">端口映射，将容器的 9000 端口映射到主机的 9000 端口</td>
+</tr>
+<tr>
+<td align="center">–link</td>
+<td align="center">连接 Mysql 容器，对应我们创建的容器名称</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">映射文件，宿主机容器文件同步</td>
+</tr>
+<tr>
+<td align="center">-it</td>
+<td align="center">表示让容器的标准输入打开,并且分配一个伪终端</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">后台运行容器</td>
+</tr>
+</tbody></table>
+<h4 id="3、基本配置-1"><a href="#3、基本配置-1" class="headerlink" title="3、基本配置"></a>3、基本配置</h4><pre><code># 进入容器
+docker exec -it php-fpm bash
 
 # 中科大源,然后下载需要的软件
 sed -i &#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list
@@ -521,37 +619,113 @@ apt update
 2、mv composer.phar /usr/local/bin/composer
 3、composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
-# 修改 php-fpm.conf include 路径
+# 修改 /usr/local/etc/php-fpm.conf include 路径
 include=/usr/local/etc/php-fpm.d/*.conf
 
-# 开启扩展
-/usr/local/bin/docker-php-ext-install pdo_mysql
+# 开启扩展命令
+/usr/local/bin/docker-php-ext-install mysqli
 
-# 已经在包存在的扩展直接可以这样安装了，没有的就得自己下载安装了。下载扩展到 /usr/src/php/ext 目录当中,注意：如果没有 /usr/src/php/ext 别慌执行一下 /usr/local/bin/docker-php-ext-install 一个没有的扩展，然后文件夹就会有了，每次安装好扩展之后 php 自动删除！
+# 常见的一些扩展可以这样安装了，没有的就得自己下载安装了。下载扩展到 /usr/src/php/ext 目录当中,注意：如果没有 /usr/src/php/ext 别慌执行一下 /usr/local/bin/docker-php-ext-install 一个没有的扩展，然后文件夹就会有了，每次安装好扩展之后 php 自动删除！
 
-# docker-php-ext-enable 可以控制扩展
+# 关闭扩展命令
+docker-php-ext-enable mysqli
 
-# 配置 nginx FastCGI 的请求
-location ~ \.php$ {
-  root           /var/www/html/;
-  fastcgi_pass   php-fpm:9000;
-  fastcgi_index  index.php;
-  include        fastcgi_params;
-  fastcgi_param SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
-}</code></pre><h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><p>从 Dockerhub 拉取 Nginx 镜像 </p>
-<pre><code>docker pull nginx</code></pre><p>实例容器,启动 Nginx：</p>
-<pre><code>docker run --name nginx_80 -p 80:80 --link php-fpm -v /宿主机存放代码的目录:/usr/share/nginx/html -d nginx
-
-### 命令说明
-run 创建一个新的容器
---name 指定容器的名称
--p 80:80：将容器的 80 端口映射到主机的 80 端口
-nginx 是 Dockerhub 上下载nginx镜像名称（如果本地没有可用的镜像，Docker会自动下载一个）
--d 后台启动。
-
-# 中科大源,然后下载需要的软件
+# php.ini
+这个镜像给我们打包的配置文件，分开发和生产二个配置文件，在 /usr/local/etc/php 当中</code></pre><h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><h4 id="1、从-Dockerhub-拉取-Nginx-镜像"><a href="#1、从-Dockerhub-拉取-Nginx-镜像" class="headerlink" title="1、从 Dockerhub 拉取 Nginx 镜像"></a>1、从 Dockerhub 拉取 Nginx 镜像</h4><pre><code>docker pull nginx</code></pre><h4 id="2、创建容器-2"><a href="#2、创建容器-2" class="headerlink" title="2、创建容器"></a>2、创建容器</h4><pre><code>docker run --name nginx_80 -p 80:80 --link php-fpm -v /宿主机存放代码的目录:/usr/share/nginx/html -d nginx</code></pre><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">命令详解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">run</td>
+<td align="center">创建一个容器</td>
+</tr>
+<tr>
+<td align="center">–name</td>
+<td align="center">指定容器名称，为空 docker 自动分配名称</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td align="center">端口映射，将容器的 80 端口映射到主机的 80 端口</td>
+</tr>
+<tr>
+<td align="center">–link</td>
+<td align="center">连接 PHP 容器，对应我们创建的容器名称</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">映射文件，宿主机容器文件同步</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">后台运行容器</td>
+</tr>
+</tbody></table>
+<h4 id="3、基本配置-2"><a href="#3、基本配置-2" class="headerlink" title="3、基本配置"></a>3、基本配置</h4><pre><code># 中科大源,然后下载需要的软件
 sed -i &#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list
-apt update</code></pre><h3 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h3><pre><code>docker pull memcached
+apt update
+
+# 贴上我的配置，Nginx 配置文件所在目录 /etc/nginx
+server {
+    # 监听端口
+    listen       80;
+
+    # 域名
+    server_name  dev.test;
+
+    # 程序目录
+    root   /usr/share/nginx/html/dao/public;
+
+    # 默认访问
+    index  index.php;
+
+    # 字符集编码
+    charset utf-8;
+
+    # 错误日志
+    access_log  /var/log/nginx/app.access.log  main;
+
+    # 默认请求 正则匹配
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    # 自定义错误页面
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    #error_page   500 502 503 504  /50x.html;
+    #location = /50x.html {
+    #    root   /usr/share/nginx/html;
+    #}
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+
+    # 正则匹配到 PHP 文件请求 ，扔给 FastCGI 
+    location ~ \.php$ {
+        root           /var/www/html/dao/public;
+        fastcgi_pass   php-fpm:9000;
+        fastcgi_index  index.php;
+        include        fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    # deny access to .htaccess files, if Apache&#39;s document root
+    # concurs with nginx&#39;s one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}</code></pre><h3 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h3><pre><code>docker pull memcached
 
 #实例容器,启动memcached：
 docker run --name memcached -p 11211:11211 -m 64m -d memcached
@@ -855,7 +1029,7 @@ CGICGI 是 Web 服务器运
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">44.1k</span>
+                <span class="white-color">44.7k</span>
             
 
             
