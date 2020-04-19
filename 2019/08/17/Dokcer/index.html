@@ -631,7 +631,10 @@ include=/usr/local/etc/php-fpm.d/*.conf
 docker-php-ext-enable mysqli
 
 # php.ini
-这个镜像给我们打包的配置文件，分开发和生产二个配置文件，在 /usr/local/etc/php 当中</code></pre><h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><h4 id="1、从-Dockerhub-拉取-Nginx-镜像"><a href="#1、从-Dockerhub-拉取-Nginx-镜像" class="headerlink" title="1、从 Dockerhub 拉取 Nginx 镜像"></a>1、从 Dockerhub 拉取 Nginx 镜像</h4><pre><code>docker pull nginx</code></pre><h4 id="2、创建容器-2"><a href="#2、创建容器-2" class="headerlink" title="2、创建容器"></a>2、创建容器</h4><pre><code>docker run --name nginx_80 -p 80:80 --link php-fpm -v /宿主机存放代码的目录:/usr/share/nginx/html -d nginx</code></pre><table>
+这个镜像给我们打包的配置文件，分开发和生产二个配置文件，在 /usr/local/etc/php 当中
+
+# 重启 docker
+systemctl restart docker</code></pre><h3 id="Nginx-安装"><a href="#Nginx-安装" class="headerlink" title="Nginx 安装"></a>Nginx 安装</h3><h4 id="1、从-Dockerhub-拉取-Nginx-镜像"><a href="#1、从-Dockerhub-拉取-Nginx-镜像" class="headerlink" title="1、从 Dockerhub 拉取 Nginx 镜像"></a>1、从 Dockerhub 拉取 Nginx 镜像</h4><pre><code>docker pull nginx</code></pre><h4 id="2、创建容器-2"><a href="#2、创建容器-2" class="headerlink" title="2、创建容器"></a>2、创建容器</h4><pre><code>docker run --name nginx_80 -p 80:80 --link php-fpm -v /宿主机存放代码的目录:/usr/share/nginx/html -d nginx</code></pre><table>
 <thead>
 <tr>
 <th align="center">命令</th>
@@ -725,7 +728,10 @@ server {
     #location ~ /\.ht {
     #    deny  all;
     #}
-}</code></pre><h3 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h3><pre><code>docker pull memcached
+}
+
+# 重启 docker
+systemctl restart docker</code></pre><h3 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h3><pre><code>docker pull memcached
 
 #实例容器,启动memcached：
 docker run --name memcached -p 11211:11211 -m 64m -d memcached
