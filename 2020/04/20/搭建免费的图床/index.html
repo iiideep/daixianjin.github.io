@@ -4,9 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Laravel-日志操作, 道法自然">
-    <meta name="description" content="摘要为了帮助你更多的了解应用程序中到底发生了什么，Laravel 提供了强大的日志服务，允许你将日志消息、系统错误日志记录到文件，甚至使用 Slack 通知到你的整个团队。
-在 Laravel 框架中，Laravel 使用 Monolog ">
+    <meta name="keywords" content="利用 Github + PicGo + JsDelivr 搭建免费高速图床, 道法自然">
+    <meta name="description" content="摘要以前使用的微博图床，我使用 Manjaro 18 版本的时候 Chrome 插件好好的可以使用，但是有一次重新装了一次系统后凉了，也找不到解决方法，放弃了。SM.SM 虽然免费使用，也是现在一直使用的图床，但是最近出来了收费模式，突然感">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Laravel-日志操作 | 道法自然</title>
+    <title>利用 Github + PicGo + JsDelivr 搭建免费高速图床 | 道法自然</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -199,13 +198,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Laravel-日志操作
+                        利用 Github + PicGo + JsDelivr 搭建免费高速图床
                     </div>
                 </div>
             </div>
@@ -316,8 +315,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Laravel/" target="_blank">
-                                <span class="chip bg-color">Laravel</span>
+                            <a href="/tags/网络/" target="_blank">
+                                <span class="chip bg-color">网络</span>
                             </a>
                         
                     </div>
@@ -328,8 +327,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Laravel/" class="post-category" target="_blank">
-                                Laravel
+                            <a href="/categories/网络/" class="post-category" target="_blank">
+                                网络
                             </a>
                         
                     </div>
@@ -340,21 +339,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-07
+                    2020-04-20
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.3k
+                        335
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        1 分
                     </div>
                     
                 
@@ -370,202 +369,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>为了帮助你更多的了解应用程序中到底发生了什么，Laravel 提供了强大的日志服务，允许你将日志消息、系统错误日志记录到文件，甚至使用 Slack 通知到你的整个团队。</p>
-<p>在 Laravel 框架中，Laravel 使用 <a href="https://github.com/Seldaek/monolog" target="_blank" rel="noopener">Monolog</a> 库，它为各种强大的日志处理提供支持。Laravel 使配置这些处理程序变得简单，允许你混合并匹配它们自定义的应用程序日志处理。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>所有的应用程序日志系统配置都位于 <code>config/logging.php</code> 配置文件中。默认使用大概配置如下：</p>
-<pre><code># 默认使用的 stack 通道
-&#39;default&#39; =&gt; env(&#39;LOG_CHANNEL&#39;, &#39;stack&#39;),
-# 注意真正在使用的是 .env 文件当中的 LOG_CHANNEL=stack，修改这里即可修改默认通道
-&#39;channels&#39; =&gt; [
-         # 默认使用的通道
-        &#39;stack&#39; =&gt; [
-            &#39;driver&#39; =&gt; &#39;stack&#39;,# 驱动
-            &#39;channels&#39; =&gt; [&#39;daily&#39;], # 聚合，支持多通道
-            &#39;ignore_exceptions&#39; =&gt; false, # 默认忽略异常
-        ],
-         # stack 又聚合了 daily 通道，它每天的日志信息都会输出到 storage/log 文件下
-        &#39;daily&#39; =&gt; [
-            &#39;driver&#39; =&gt; &#39;daily&#39;, # 驱动
-            &#39;path&#39; =&gt; storage_path(&#39;logs/laravel.log&#39;),# 日志文件存储路径
-            &#39;level&#39; =&gt; &#39;debug&#39;, # 八大错误级别
-            &#39;days&#39; =&gt; 14, # 日志分片周期，多少天一个文件
-        ],
-    ]</code></pre><h3 id="配置-Single-和-Daily-通道"><a href="#配置-Single-和-Daily-通道" class="headerlink" title="配置 Single 和 Daily 通道"></a>配置 Single 和 Daily 通道</h3><p><code>single</code> 和 <code>daily</code> 通道包含三个可选配置项：<code>bubble</code> 、<code>permission</code> 和 <code>locking</code></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>名称</td>
-<td>描述</td>
-<td>默认值</td>
-</tr>
-<tr>
-<td><code>bubble</code></td>
-<td>消息处理后，指示消息是否推送到其他通道</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>permission</code></td>
-<td>日志文件权限</td>
-<td><code>0644</code></td>
-</tr>
-<tr>
-<td><code>locking</code></td>
-<td>写入之前尝试锁定日志文件</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="日志写入的八大级别"><a href="#日志写入的八大级别" class="headerlink" title="日志写入的八大级别"></a>日志写入的八大级别</h3><table>
-<thead>
-<tr>
-<th align="left">错误等级</th>
-<th align="left">描述</th>
-<th align="left">整型值</th>
-<th align="left">应用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">debug</td>
-<td align="left">代码引用为 “MonologLogger::DEBUG”</td>
-<td align="left">100</td>
-<td align="left">紧急，如系统挂掉</td>
-</tr>
-<tr>
-<td align="left">info</td>
-<td align="left">代码引用为 “MonologLogger::INFO”</td>
-<td align="left">200</td>
-<td align="left">需要立即采取行动，如数据库异常等</td>
-</tr>
-<tr>
-<td align="left">notice</td>
-<td align="left">代码引用为 “MonologLogger::NOTICE”</td>
-<td align="left">250</td>
-<td align="left">严重问题，如异常</td>
-</tr>
-<tr>
-<td align="left">warning</td>
-<td align="left">代码引用为 “MonologLogger::WARNING”</td>
-<td align="left">300</td>
-<td align="left">运行时错误，不需要立即处理但需要被记录和监控</td>
-</tr>
-<tr>
-<td align="left">error</td>
-<td align="left">代码引用为 “MonologLogger::ERROR”</td>
-<td align="left">400</td>
-<td align="left">警告但不是错误，比如使用了被废弃的API</td>
-</tr>
-<tr>
-<td align="left">critical</td>
-<td align="left">代码引用为 “MonologLogger::CRITICAL”</td>
-<td align="left">500</td>
-<td align="left">普通但值得注意的事件</td>
-</tr>
-<tr>
-<td align="left">alert</td>
-<td align="left">代码引用为 “MonologLogger::ALERT”</td>
-<td align="left">550</td>
-<td align="left">感兴趣的事件，比如登录、退出</td>
-</tr>
-<tr>
-<td align="left">emergency</td>
-<td align="left">代码引用为 “MonologLogger::EMERGENCY”</td>
-<td align="left">600</td>
-<td align="left">详细的调试信息</td>
-</tr>
-</tbody></table>
-<h3 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h3><pre><code>&lt;?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-# 引入 Log
-use Illuminate\Support\Facades\Log;
-
-class UsersController extends Controller
-{
-    public function get()
-    {
-        # 写入日志，第二次参数为数组在日志文件当中转换为 JSON 默认使用配置文件中默认的通道
-        Log::info(&#39;记录的日志&#39;,[&#39;ip&#39; =&gt; \request()-&gt;ip()]);
-
-        # 以上是写入默认配置文件当中的通道，除此之外还可以指定写入的通道
-        Log::channel(&#39;single&#39;)-&gt;info(&#39;记录的日志&#39;,[&#39;ip&#39; =&gt; \request()-&gt;ip()]);
-
-        # 如果想要创建一个由多通道构成的按需记录的堆栈，可以使用 stack 方法：
-        Log::stack([&#39;single&#39;, &#39;slack&#39;])-&gt;info(&#39;Something happened!&#39;);
-    }
-}</code></pre><p>日志文件的结果：</p>
-<pre><code># 注意虽然他们在日志文件里面的结果都是一样，但是他们存储的日志文件是不一样的一个单一、一个日常
-[2019-09-07 13:58:05] local.INFO: 记录的日志 {&quot;ip&quot;:&quot;xxxxxxxxxxx&quot;} </code></pre><h3 id="自定义-Monolog-通道"><a href="#自定义-Monolog-通道" class="headerlink" title="自定义 Monolog 通道"></a>自定义 Monolog 通道</h3><p>首先我们需要在<code>config/logging.php</code>中添加一个 tap 数组。</p>
-<pre><code># 自定义 monolog 通道
-&#39;monolog&#39; =&gt; [
-    &#39;driver&#39; =&gt; &#39;daily&#39;, # 使用的 daily 每日记录
-    &#39;tap&#39; =&gt; [App\Logging\CustomizeFormatter::class],# 接口
-    &#39;permission&#39;=&gt; 0777, # 权限
-    &#39;path&#39; =&gt; storage_path(&#39;logs/laravel.log&#39;), # 存储的路径
-    &#39;level&#39; =&gt; &#39;debug&#39;, # 八大错误级别
-    &#39;days&#39; =&gt; 1, # 日志分片
-],</code></pre><p>创建 CustomizeFormatter.php</p>
-<pre><code>&lt;?php
-
-namespace App\Logging;
-# 引入自定义的 Formatter
-use App\Logging\JsonFormatter;
-
-class CustomizeFormatter
-{
-    /**
-     * 自定义给定的日志实例。
-     *
-     * @param  \Illuminate\Log\Logger  $logger
-     * @return void
-     */
-    public function __invoke($logger)
-    {
-        foreach ($logger-&gt;getHandlers() as $handler) {
-            $handler-&gt;setFormatter(new JsonFormatter());
-        }
-    }
-}
-</code></pre><p>创建 JsonFormatter.php</p>
-<pre><code>&lt;?php
-namespace App\Logging;
-
-use Monolog\Formatter\JsonFormatter as BaseJsonFormatter;
-
-class JsonFormatter extends BaseJsonFormatter
-{
-    public function format(array $record) ：string　
-    {
-        // 这个就是最终要记录的数组，最后转成Json并记录进日志
-        $newRecord = [
-            &#39;time&#39; =&gt; $record[&#39;datetime&#39;]-&gt;format(&#39;Y-m-d H:i:s&#39;),
-            &#39;message&#39; =&gt; $record[&#39;message&#39;],
-        ];
-
-        if (!empty($record[&#39;context&#39;])) {
-            $newRecord = array_merge($newRecord, $record[&#39;context&#39;]);
-        }
-        //$json = &#39;aaa,bbb,ccc&#39;;  // 这是最终返回的记录串，可以按自己的需求改
-        $json = $this-&gt;toJson($this-&gt;normalize($newRecord), true) . ($this-&gt;appendNewline ? &quot;\n&quot; : &#39;&#39;);
-
-        return $json;
-    }
-}</code></pre><p>使用自定义的通道</p>
-<pre><code>Log::channel(&#39;monolog&#39;)-&gt;info(&#39;记录的日志&#39;,[&#39;ip&#39; =&gt; \request()-&gt;ip()]);
-
-# 结果
-{&quot;time&quot;:&quot;2019-09-07 16:37:52&quot;,&quot;message&quot;:&quot;记录的日志&quot;,&quot;ip&quot;:&quot;xxxxxx&quot;}</code></pre><blockquote>
-<p>重写父类的时候，一定要注意，如果父类有返回值限制的话，那么也必须跟父类一个类型不然就会报错。这的 format 在父类的时候限制返回的 string ，所以我们也需要在返回值限定那 string</p>
-</blockquote>
+                <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>以前使用的微博图床，我使用 Manjaro 18 版本的时候 Chrome 插件好好的可以使用，但是有一次重新装了一次系统后凉了，也找不到解决方法，放弃了。SM.SM 虽然免费使用，也是现在一直使用的图床，但是最近出来了收费模式，突然感觉速度上好像慢了那么点，也可能是心里作用吧。刚好也看见一篇文章利用 Github 做仓库，在配合着 PicGo 使用，感觉上有东西啊，毕竟 Github 是免费的而且不限大小，说着走起！</p>
+<h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><h4 id="1、创建一个新的仓库"><a href="#1、创建一个新的仓库" class="headerlink" title="1、创建一个新的仓库"></a>1、创建一个新的仓库</h4><p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200421144549.png" alt></p>
+<h4 id="2、设置授权-Token"><a href="#2、设置授权-Token" class="headerlink" title="2、设置授权 Token"></a>2、设置授权 Token</h4><p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200421144732.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200421144810.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200421144831.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200421145553.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200421145658.png" alt></p>
+<h3 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h3><p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_plasmashell_20200421153900.png" alt></p>
+<p>格式：</p>
+<ul>
+<li><p>设定仓库名：刚才新创建的仓库</p>
+</li>
+<li><p>设定分支名：一般默认使用 master 当然也可以选择别的分支</p>
+</li>
+<li><p>设定 Token ：第二步操作所得的授权 Token ，他是来调用 Github 接口所用</p>
+</li>
+<li><p>指定存储路径：可以自行在仓库下面创建文件目录，然后指定自己想储存的目录，也可以不选择存储目录</p>
+</li>
+<li><p>设定自定义的域名：利用 <strong>jsDelivr</strong> 来免费加速我们的访问，格式是：<a href="https://cdn.jsdelivr.net/gh/Github用户名/创建的仓库名" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/Github用户名/创建的仓库名</a></p>
+</li>
+</ul>
 <blockquote>
-<p>参考地址：</p>
-<p><a href="https://www.jianshu.com/p/b8e0ef4ef249" target="_blank" rel="noopener">https://www.jianshu.com/p/b8e0ef4ef249</a></p>
+<p>参考地址：<br><a href="https://www.itrhx.com/2019/08/01/A27-image-hosting/" target="_blank" rel="noopener">https://www.itrhx.com/2019/08/01/A27-image-hosting/</a></p>
 </blockquote>
 
             </div>
@@ -605,7 +431,7 @@ class JsonFormatter extends BaseJsonFormatter
         repo: 'daixianjin.github.io',
         owner: 'daixianjin',
         admin: "daixianjin",
-        id: '2019-09-07T22-52-04',
+        id: '2020-04-20T20-15-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -626,46 +452,48 @@ class JsonFormatter extends BaseJsonFormatter
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/08/Laravel-DingoApi/">
+                <a href="/2020/04/20/搭建免费的图床/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Laravel-DingoApi">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="利用 Github + PicGo + JsDelivr 搭建免费高速图床">
                         
-                        <span class="card-title">Laravel-DingoApi</span>
+                        <span class="card-title">利用 Github + PicGo + JsDelivr 搭建免费高速图床</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            摘要dingo/api 是一个 Lumen 和 Laravel 都可用的 RestFul 工具包，帮助我们快速的开始构建 RestFul Api。我们的目的是教会大家如何快速的搭建并使用这个包，更多的功能，还需要你仔细阅读 DingoApi
+                            摘要以前使用的微博图床，我使用 Manjaro 18 版本的时候 Chrome 插件好好的可以使用，但是有一次重新装了一次系统后凉了，也找不到解决方法，放弃了。SM.SM 虽然免费使用，也是现在一直使用的图床，但是最近出来了收费模式，突然感
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Laravel/" class="post-category" target="_blank">
-                                    Laravel
+                            <a href="/categories/网络/" class="post-category" target="_blank">
+                                    网络
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Laravel-扩展包/" target="_blank">
-                        <span class="chip bg-color">Laravel-扩展包</span>
+                    <a href="/tags/网络/" target="_blank">
+                        <span class="chip bg-color">网络</span>
                     </a>
                     
                 </div>
@@ -679,31 +507,31 @@ class JsonFormatter extends BaseJsonFormatter
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/06/Composer/">
+                <a href="/2020/04/14/Linux-打造完美的开发环境/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Composer">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="打造完美桌面的开发环境">
                         
-                        <span class="card-title">Composer</span>
+                        <span class="card-title">打造完美桌面的开发环境</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            摘要先了解一下历史，从拷贝第三方代码到项目中(1994)，到 PEAR 安装依赖包(1999)，再到 Composer 兴起(2012)，PHP 社区经历了将近 20 年的探索。PHP 这门古老的语言，也在不断的发展更新，在 Web 领域一
+                            摘要萝卜青菜各有所爱，Linux 桌面可以说常年是一个大乱斗的环境，谁都不服谁，也没有人能站出来统一天下，也不可能统一，毕竟开源自由是 Linux 的宗旨！这也算 Linux 的魅力之一吧！！！不同于 Windows 和 OS X 的软件生
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Composer/" class="post-category" target="_blank">
-                                    Composer
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
                                 </a>
                             
                             
@@ -713,8 +541,8 @@ class JsonFormatter extends BaseJsonFormatter
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Composer/" target="_blank">
-                        <span class="chip bg-color">Composer</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
