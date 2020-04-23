@@ -378,21 +378,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-22
+                    2020-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    714
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -425,14 +425,14 @@ Server <span class="token operator">=</span> https://mirrors.ustc.edu.cn/archlin
 
 <span class="token comment" spellcheck="true"># 强制更新包数据，同时更新软件</span>
 <span class="token function">sudo</span> pacman -Syyu <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化系统，其实就是安装驱动和语言包了，都是傻瓜式的一键安装，但是前提条件是必须系统为最新的状态，如有未更新需要更新后再操作。找到 <code>添加/删除软件</code>查看是否有更新，</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化系统，其实就是安装驱动和语言包了，都是傻瓜式的一键安装，但是前提条件是必须系统为最新的状态，如有未更新需要更新后再操作。找到 <code>添加/删除软件</code>查看是否有更新。完成后先重启一下系统，在继续后续操作。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/pLVe6fstA9lqIyi.webp" alt></p>
-<p>找到系统设置-&gt;硬件设定-&gt;语言包。注：就算不安装驱动和语言包，也不会影响正常使用。</p>
+<p>找到<code>系统设置-&gt;硬件设定-&gt;语言包</code>。注：就算不安装驱动和语言包，也不会影响正常使用。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/cQ3rfKvjBUJaROS.webp" alt></p>
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/pBceUW2hrSKZAIH.png" alt></p>
 <h3 id="美化桌面"><a href="#美化桌面" class="headerlink" title="美化桌面"></a>美化桌面</h3><h4 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h4><p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/kgnfjKFCmz4eIT9.webp" alt></p>
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/W1Dcdv43bumT8qG.webp" alt></p>
-<p>后续，图表、字体、光标都可以安装上面的操作进行，字体根据自己的需求可以调整，个人感觉默认的还是非常不错！</p>
+<p>后续图标、字体、光标都可以按照以上操作进行，字体根据自己的需求可以调整，个人感觉默认的还是非常不错。</p>
 <h4 id="应用程序风格"><a href="#应用程序风格" class="headerlink" title="应用程序风格"></a>应用程序风格</h4><p>选择应用程序风格-&gt;应用样式-&gt;配置 GNOME/GTK 应用程序样式</p>
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/rltVFy1BfQ3Tw9O.webp" alt></p>
 <p>选择应用程序风格-&gt;窗口装饰</p>
@@ -446,10 +446,33 @@ Server <span class="token operator">=</span> https://mirrors.ustc.edu.cn/archlin
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/S6whGnoRjJxCLfr.webp" alt></p>
 <p>效果图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20200422205512.gif" alt></p>
+<h4 id="Plasma"><a href="#Plasma" class="headerlink" title="Plasma"></a>Plasma</h4><p>删除原来的 Plasma ，之后新建一个空白板，演示图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_plasmashell_20200423151746.gif" alt></p>
+<p>添加部件推荐：</p>
+<ul>
+<li>application title  可以展示软件图片与软件名称，如没有请安装</li>
+<li>全局菜单             跟 OS X 的全局菜单一样而且原生，但有些软件不支持</li>
+<li>数字时钟             日期时间展示</li>
+<li>任务调度              虚拟工作桌面，方便开发开打程序多分类而放，视觉效果好</li>
+<li>系统托盘              属于一个必备的部件</li>
+<li>程序面板               可以查看所有程序和一些快捷的操作，非常方便</li>
+</ul>
+<p>部件也可以本地安装，也可以在线安装，跟以上操作一致，演示图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_plasmashell_20200423153503.gif" alt></p>
+<p>添加部件演示操作：当选择部件后，鼠标右键点一下即可选择部件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_plasmashell_20200423153757.gif" alt></p>
+<p>排版任务栏，一些基本操作演示操作：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_plasmashell_20200423154507.gif" alt></p>
+<p> 任务栏基本这几个部件我感觉完全够用了，部件太多了，选择自己喜欢自己合适的来，任务栏推荐使用，窗口可以覆盖，这样看东西时自动隐藏看起来简洁一些，任务栏的什么高度、排版、位置和部件在废话一下，按照自己喜欢的来！</p>
+<h4 id="Docky"><a href="#Docky" class="headerlink" title="Docky"></a>Docky</h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S latte-dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>dock 的样式自己不喜欢调，也可以在线安装 dock 的样式，也推荐在线安装：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_plasmashell_20200423162207.gif" alt></p>
+<p>dock 排版与部件添加演示，个人感觉 dock 基本不需要啥部件，因为任务栏已经全部添加好了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/daixianjin/MyImages/%E6%B7%B1%E5%BA%A6%E5%BD%95%E5%B1%8F_plasmashell_20200423164918.gif" alt></p>
 <blockquote>
-<p>Manjaro 的自定义性很强，而且都是属于傻瓜式的操作，不需要我们去乱七八糟的搞一堆操作，还有很多的自定义操作，其他效果设置可以空闲时自己研究一下。</p>
+<p>Manjaro 的自定义性很强，而且都是属于简单的一键安装操作，不需要一堆复杂的操作和命令，桌面大概也就这个样子了，有兴趣的可以在研究研究，接下来就是一些软件的推荐安装。</p>
 </blockquote>
-<h3 id="Plasma-和-Dock"><a href="#Plasma-和-Dock" class="headerlink" title="Plasma 和 Dock"></a>Plasma 和 Dock</h3><p>未完待续…</p>
+<p>未完待续…</p>
 
             </div>
             <hr/>
@@ -822,7 +845,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.2k</span>&nbsp;字
+                class="white-color">45.6k</span>&nbsp;字
             
             
             
